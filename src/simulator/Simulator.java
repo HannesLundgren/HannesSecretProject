@@ -4,4 +4,6 @@ public class Simulator {
 	//HEJEHJEHJ
 	
 	//DEN BÄSTA KLASSEN
+	
+	//HEJHEJHEJHEJHEJ
 }
