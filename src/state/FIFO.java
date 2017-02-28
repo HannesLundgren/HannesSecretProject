@@ -8,8 +8,12 @@ public class FIFO{
 	private int currentSize = 0;
 	
 	public void add(Object arg0) {
-		fifoList.add(arg0);
-		++currentSize;
+		if(currentSize >= 6){
+			return;
+		} else {
+			fifoList.add(arg0);
+			++currentSize;
+		}
 	}
 	
 	public boolean isEmpty() {
