@@ -10,7 +10,12 @@ import java.util.Observable;
 public abstract class State extends Observable{
 	//The emergency break
 	protected boolean emergBrake = false;
+	
 	//The Event currently going on
 	Event currentEvent;
+	
+	//The current time
+	int currentTime;
+	
 	
 }
