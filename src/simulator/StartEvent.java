@@ -7,8 +7,8 @@ package simulator;
 public class StartEvent extends Event{
 
 	@Override
-
-	public StartEvent(State currentState,)
+	// UNDER CONSTRUCTION
+//	public StartEvent(State currentState,)
 	public void execute() {
 	
 		

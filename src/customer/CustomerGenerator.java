@@ -14,7 +14,7 @@ public class CustomerGenerator {
 	 * customer by 1.
 	 * @return A new customer
 	 */
-	public Customer generateCustomer(int id) {
+	public Customer generateCustomer() {
 		return new Customer(id++);
 	}
 }

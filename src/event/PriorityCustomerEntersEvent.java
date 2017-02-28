@@ -1,5 +1,5 @@
 package event;
 
-public class PriorityCustomerEntersEvent {
+public class PriorityCustomerEntersEvent extends HairSalonEvent {
 
 }

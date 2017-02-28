@@ -1,5 +1,6 @@
 package event;
 
-public class HaircutFinishedEvent {
+public class HaircutFinishedEvent extends HairSalonEvent {
 
 }
+

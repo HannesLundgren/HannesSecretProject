@@ -3,16 +3,20 @@ package state;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+import customer.Customer;
+
 public class FIFO{
-	private ArrayList<Object> fifoList = new ArrayList<Object>();
-	private int currentSize = 0;
+	private ArrayList<Customer> fifoList = new ArrayList<Customer>();
+	private int maxQueueSize;
 	
-	public void add(Object arg0) {
-		if(currentSize >= 6){
-			return;
-		} else {
-			fifoList.add(arg0);
-			++currentSize;
+	
+	public FIFO(int maxQueueSize) {
+		this.maxQueueSize = maxQueueSize;
+	}
+	
+	public void add(Customer cust) {
+		if(size() < maxQueueSize){
+			fifoList.add(cust);
 		}
 	}
 	
@@ -28,13 +32,10 @@ public class FIFO{
 		}
 	}
 	
-	public void setFirst(Object object){
-		Object temp = fifoList.get(0);
-		fifoList.set(0, object);
-		if(currentSize >= 6){
-			return;
-		} else {
-			fifoList.add(temp);
+	public void setFirst(Customer cust){
+		fifoList.add(0, cust);
+		if (size()>=maxQueueSize) {
+			fifoList.remove(size()-1);
 		}
 	}
 	
@@ -42,14 +43,13 @@ public class FIFO{
 	public void removeFirst() throws NoSuchElementException {
 		if(!this.isEmpty()){
 			fifoList.remove(0);
-			--currentSize;
 		} else {
 			throw new NoSuchElementException();
 		}
 	}
 
 	public int size() {
-		return currentSize;
+		return fifoList.size();
 	}
 
 }

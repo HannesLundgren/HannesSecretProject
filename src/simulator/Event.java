@@ -7,7 +7,8 @@ package simulator;
  */
 public abstract class Event {
 	//Time when the event is supposed to be happen.
-	double startTime;
+	protected double startTime;
+	protected EventStore store;
 	/**
 	 * Method that execute the effect of this event
 	 */

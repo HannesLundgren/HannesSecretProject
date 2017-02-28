@@ -1,7 +1,10 @@
 package state;
 
+import customer.Customer;
+import customer.CustomerGenerator;
 import random.ExponentialRandomStream;
 import random.UniformRandomStream;
+import simulator.Event;
 import simulator.State;
 /**
  * Class that represent a state at a HairSalon
@@ -11,7 +14,13 @@ import simulator.State;
 public class HairSalonState extends State {
 	
 	private int totalChairs;
-	private int totalIdleChairs;
+	private int idleChairs;
+	private double totalTimeIdle;
+	private double totalTimeWaiting;
+	private int numLost;
+	private int numReturning;
+	private Customer currentCustomer;
+	private double timeForLastEvent;
 	
 	
 	private int w;
@@ -30,31 +39,105 @@ public class HairSalonState extends State {
 	private UniformRandomStream URSCutting;
 	private UniformRandomStream URSReturning;
 	
+	private FIFO queue;
+	private CustomerGenerator custGen = new CustomerGenerator();
+	
 	
 	public HairSalonState(int totalChairs, int maxQueueSize) {
 		this.totalChairs = totalChairs;
 		this.w = maxQueueSize;
-		//SKRIV MASSA?
+		queue = new FIFO(w);
+		setCustomerArrivalDistribution(lambda,seed);
+		setCuttingTimeDistribution(hMin,hMax,seed);
+		setReturningTimeDistribution(dMin,dMax,seed);
+		
+		
 		
 	}
+	
+	public Customer generateCustomer() {
+		return custGen.generateCustomer();
+	}
+	//Setters
+
 	public void setCustomerArrivalDistribution(double lambda,long seed) {
 		this.lambda = lambda;
 		this.seed = seed;
 		ERS = new ExponentialRandomStream(lambda,seed);
 	}
+	
 	public void setCuttingTimeDistribution(double hMin, double hMax,long seed) {
 		this.hMin = hMin;
 		this.hMax = hMax;
 		this.seed = seed;
-		URSCutting = new UniformRandomStream(hMax, hMax, seed);
+		URSCutting = new UniformRandomStream(hMin, hMax, seed);
 
 	}
 	public void setReturningTimeDistribution(double dMin, double dMax,long seed) {
 		this.dMin = dMin;
 		this.dMax = dMax;
 		this.seed = seed; 
-		URSReturning = new UniformRandomStream(dMax, dMax, seed);
+		URSReturning = new UniformRandomStream(dMin, dMax, seed);
 	}
+	
+	public void setCurrentEvent(Event event) {
+		super.currentEvent = event;
+	}
+	public void setCurrentTime(double currentTime) {
+		this.currentTime = currentTime;
+	}
+	
+	public void setTimeForLastEvent(double time) {
+		timeForLastEvent = time;
+	}
+	
+	//Getters
+	
+	public double getCurrentTime() {
+		return currentTime;
+	}
+	
+	public String getCurrentEvent() {
+		return currentEvent.toString();
+	}
+	//INTE KLARRRRR
+	public int getCustomerId() {
+		return 10;
+	}
+	public int getIdleChairs() {
+		return idleChairs;
+	}
+	public double getTimeIdle() {
+		return totalTimeIdle;
+	}
+	public double getTimeWaiting() {
+		return totalTimeWaiting;
+	}
+	public int getNumWaiting() {
+		return queue.size();
+	}
+	public int getNumLost() {
+		return numLost;
+	}
+	public int getNumReturning() {
+		return numReturning;
+	}
+	
+	public Customer getCurrentCustomer() {
+		return currentCustomer;
+	}
+	//Update Methods
+	public void updateIdleTime() {
+		totalTimeIdle +=(currentTime-timeForLastEvent)*idleChairs;
+	}
+	public void updateQueueTime() {
+		totalTimeWaiting += (currentTime-timeForLastEvent)*queue.size();
+	}
+	
+
+	
+	
+	
 	
 	
 	

@@ -1,23 +1,22 @@
 package event;
 
+import customer.Customer;
 import simulator.Event;
+import state.HairSalonState;
 /**
  * General hair salon event
  * @author hanneslundgren
  *
  */
-public class HairSalonEvent extends Event{
-
-	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
-		
+public abstract class HairSalonEvent extends Event{
+	
+	protected HairSalonState state;
+	protected Customer cust;
+	
+	public Customer getCustomer() {
+		return cust;
 	}
+	
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
