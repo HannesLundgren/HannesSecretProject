@@ -1,5 +1,8 @@
 package simulator;
 
-public class EventStore {
+import java.util.PriorityQueue;
 
+public class EventStore {
+	PriorityQueue store;
+	
 }
