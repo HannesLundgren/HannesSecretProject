@@ -12,10 +12,10 @@ public abstract class State extends Observable{
 	protected boolean emergBrake = false;
 	
 	//The Event currently going on
-	Event currentEvent;
+	protected Event currentEvent;
 	
 	//The current time
-	int currentTime;
+	protected int currentTime;
 	
 	
 }

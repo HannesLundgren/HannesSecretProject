@@ -1,16 +1,16 @@
-package simulator;
+package event;
+
+import simulator.Event;
 /**
- * Class that represent a general start event
+ * General hair salon event
  * @author hanneslundgren
  *
  */
-public class StartEvent extends Event{
+public class HairSalonEvent extends Event{
 
 	@Override
-
-	public StartEvent(State currentState,)
 	public void execute() {
-	
+		// TODO Auto-generated method stub
 		
 	}
 
