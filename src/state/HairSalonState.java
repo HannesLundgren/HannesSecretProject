@@ -1,5 +1,7 @@
 package state;
 
+import java.util.Random;
+
 import customer.Customer;
 import customer.CustomerGenerator;
 import random.ExponentialRandomStream;
@@ -21,6 +23,7 @@ public class HairSalonState extends State {
 	private int numReturning;
 	private Customer currentCustomer;
 	private double timeForLastEvent;
+	private int totalCustomers;
 	
 	
 	private int w;
@@ -41,6 +44,7 @@ public class HairSalonState extends State {
 	
 	private FIFO queue;
 	private CustomerGenerator custGen = new CustomerGenerator();
+	private Random rand = new Random();
 	
 	
 	public HairSalonState(int totalChairs, int maxQueueSize) {
@@ -65,6 +69,17 @@ public class HairSalonState extends State {
 		return custGen.generateCustomer();
 	}
 	//Setters
+	
+//	public void SetSatisfied(Customer c) {
+//		c.setSatisfied();
+//	}
+//	public void SetNotSatisfied(Customer c) {
+//		c.setNotSatisfied();
+//	}
+	
+	public boolean addToQueue(Customer c) {
+		return queue.add(c);
+	}
 
 	public void setCustomerArrivalDistribution(double lambda,long seed) {
 		this.lambda = lambda;
@@ -99,7 +114,12 @@ public class HairSalonState extends State {
 	public void setCurrentCustomer(Customer cust) {
 		currentCustomer = cust;
 	}
-	
+	public void decreaseIdleChairs() {
+		idleChairs--;
+	}
+	public void increaseIdleChairs() {
+		idleChairs++;
+	}
 	//Getters
 	
 	public double getCurrentTime() {
@@ -109,7 +129,7 @@ public class HairSalonState extends State {
 	public String getCurrentEvent() {
 		return currentEvent.toString();
 	}
-	//INTE KLARRRRR
+	
 	public int getCustomerId() {
 		return 10;
 	}
@@ -125,6 +145,9 @@ public class HairSalonState extends State {
 	public int getNumWaiting() {
 		return queue.size();
 	}
+	public boolean isQueueEmpty() {
+		return queue.isEmpty();
+	}
 	public int getNumLost() {
 		return numLost;
 	}
@@ -135,12 +158,52 @@ public class HairSalonState extends State {
 	public Customer getCurrentCustomer() {
 		return currentCustomer;
 	}
+	public boolean isClosed() {
+		return isCLosed;
+	}
+	public boolean isChairsIdle() {
+		if (idleChairs>0) {
+			return true;
+		}
+		return false;
+	}
+	public double getHairdresserFinishTime() {
+		return currentTime + URSCutting.next();
+	}
+	public double getNextArrivalTime() {
+		return currentTime + ERS.next();
+	}
+	public double getUnsatisfiedCustomerArrivalTime() {
+		return currentTime + URSReturning.next();
+	}
+	public Customer getFirst() {
+		return queue.getFirst();
+	}
 	//Update Methods
 	public void updateIdleTime() {
 		totalTimeIdle +=(currentTime-timeForLastEvent)*idleChairs;
 	}
 	public void updateQueueTime() {
 		totalTimeWaiting += (currentTime-timeForLastEvent)*queue.size();
+	}
+	public void increaseNumLost() {
+		numLost++;
+	}
+	public void removeFirst() {
+		queue.removeFirst();
+	}
+	public boolean checkHaircut(Customer c) {
+		// TODO Auto-generated method stub
+		if(rand.nextDouble()<p) {
+			c.setPriority();
+			return true;
+		}
+		return false;
+			
+	}
+	public boolean addPriorityCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		return queue.addPriorityCustomer(c);
 	}
 	
 

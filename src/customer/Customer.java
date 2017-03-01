@@ -6,6 +6,10 @@ package customer;
  */
 public class Customer {
 	private int id;
+
+//	private boolean notSatisfied = false;
+	private boolean priority = false;
+
 	
 	/**
 	 * The class constructor
@@ -16,8 +20,26 @@ public class Customer {
 	}
 	
 	//getter
-	public int getCustomerID() {
+
+	public int getId() {
 		return id;
 	}
+	public boolean Priority() {
+		return priority;
+	}
+	public void setPriority() {
+		priority = true;
+	}
+	public void removePriority() {
+		priority = false;
+	}
+//	public void setSatisfied() {
+//		notSatisfied = false;
+//	}
+//	public void setNotSatisfied() {
+//		notSatisfied = true;
+//	}
+//	
+
 	
 }

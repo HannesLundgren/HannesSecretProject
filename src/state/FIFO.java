@@ -14,17 +14,19 @@ public class FIFO{
 		this.maxQueueSize = maxQueueSize;
 	}
 	
-	public void add(Customer cust) {
+	public boolean add(Customer cust) {
 		if(size() < maxQueueSize){
 			fifoList.add(cust);
+			return true;
 		}
+		return false;
 	}
 	
 	public boolean isEmpty() {
 		return size() == 0;
 	}
 
-	public Object getFirst() throws NoSuchElementException {
+	public Customer getFirst() throws NoSuchElementException {
 		if(!this.isEmpty()){
 			return fifoList.get(0);
 		} else {
@@ -32,12 +34,22 @@ public class FIFO{
 		}
 	}
 	
-	public void setFirst(Customer cust){
-		fifoList.add(0, cust);
-		if (size()>=maxQueueSize) {
-			fifoList.remove(size()-1);
+	
+	public boolean addPriorityCustomer(Customer cust) {
+		for (int i = 0;i<size();i++) {
+			if(!fifoList.get(i).Priority()) {
+				fifoList.add(i, cust);
+				return true;
+			}
 		}
+		return false;
 	}
+//	public void setFirst(Customer cust){
+//		fifoList.add(0, cust);
+//		if (size()>=maxQueueSize) {
+//			fifoList.remove(size()-1);
+//		}
+//	}
 	
 
 	public void removeFirst() throws NoSuchElementException {
