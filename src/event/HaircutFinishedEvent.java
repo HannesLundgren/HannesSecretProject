@@ -39,7 +39,8 @@ public class HaircutFinishedEvent extends HairSalonEvent {
 		}
 		if (state.checkHaircut(cust)){
 			double timeForNext = state.getUnsatisfiedCustomerArrivalTime();
-			HairSalonEvent returning = new PriorityCustomerEntersEvent
+			HairSalonEvent returning = new PriorityCustomerEntersEvent(timeForNext,state,store,cust);
+			store.add(returning);
 		}
 		
 	}

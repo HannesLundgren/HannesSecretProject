@@ -23,6 +23,7 @@ public class HairSalonState extends State {
 	private int numReturning;
 	private Customer currentCustomer;
 	private double timeForLastEvent;
+	private int totalCustomers;
 	
 	
 	private int w;
@@ -43,7 +44,7 @@ public class HairSalonState extends State {
 	
 	private FIFO queue;
 	private CustomerGenerator custGen = new CustomerGenerator();
-	Random rand = new Random();
+	private Random rand = new Random();
 	
 	
 	public HairSalonState(int totalChairs, int maxQueueSize) {
@@ -69,12 +70,12 @@ public class HairSalonState extends State {
 	}
 	//Setters
 	
-	public void SetSatisfied(Customer c) {
-		c.setSatisfied();
-	}
-	public void SetNotSatisfied(Customer c) {
-		c.setNotSatisfied();
-	}
+//	public void SetSatisfied(Customer c) {
+//		c.setSatisfied();
+//	}
+//	public void SetNotSatisfied(Customer c) {
+//		c.setNotSatisfied();
+//	}
 	
 	public boolean addToQueue(Customer c) {
 		return queue.add(c);
@@ -199,6 +200,10 @@ public class HairSalonState extends State {
 		}
 		return false;
 			
+	}
+	public boolean addPriorityCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		return queue.addPriorityCustomer(c);
 	}
 	
 

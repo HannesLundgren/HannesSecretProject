@@ -34,12 +34,22 @@ public class FIFO{
 		}
 	}
 	
-	public void setFirst(Customer cust){
-		fifoList.add(0, cust);
-		if (size()>=maxQueueSize) {
-			fifoList.remove(size()-1);
+	
+	public boolean addPriorityCustomer(Customer cust) {
+		for (int i = 0;i<size();i++) {
+			if(!fifoList.get(i).Priority()) {
+				fifoList.add(i, cust);
+				return true;
+			}
 		}
+		return false;
 	}
+//	public void setFirst(Customer cust){
+//		fifoList.add(0, cust);
+//		if (size()>=maxQueueSize) {
+//			fifoList.remove(size()-1);
+//		}
+//	}
 	
 
 	public void removeFirst() throws NoSuchElementException {
