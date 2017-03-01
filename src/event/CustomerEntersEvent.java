@@ -6,6 +6,7 @@ import state.HairSalonState;
 
 public class CustomerEntersEvent extends HairSalonEvent {
 	
+
 	public CustomerEntersEvent(double startTime, HairSalonState state, EventStore store) {
 		super.startTime = startTime;
 		super.state = state;
@@ -24,7 +25,20 @@ public class CustomerEntersEvent extends HairSalonEvent {
 		state.setCurrentCustomer(newCust);
 		
 		state.callChanged();
+		//Here the view has been updated and the event can 
+		//have an effect
 		
+		if (state.isClosed()) {
+			//SKRIV OM?!
+			return;
+		}
+		
+		if (state.isChairsIdle()){
+			state.decreaseIdleChairs();
+			store.add(new );
+			//FORTSÄTT EFTER HAIRCUTFINISHED
+			
+		}
 		
 		
 		
@@ -34,7 +48,7 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Enters"
 	}
 	
 }

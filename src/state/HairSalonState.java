@@ -99,7 +99,12 @@ public class HairSalonState extends State {
 	public void setCurrentCustomer(Customer cust) {
 		currentCustomer = cust;
 	}
-	
+	public void decreaseIdleChairs() {
+		idleChairs--;
+	}
+	public void increaseIdleChairs() {
+		idleChairs++;
+	}
 	//Getters
 	
 	public double getCurrentTime() {
@@ -125,6 +130,9 @@ public class HairSalonState extends State {
 	public int getNumWaiting() {
 		return queue.size();
 	}
+	public boolean isQueueEmpty() {
+		return queue.isEmpty();
+	}
 	public int getNumLost() {
 		return numLost;
 	}
@@ -135,6 +143,25 @@ public class HairSalonState extends State {
 	public Customer getCurrentCustomer() {
 		return currentCustomer;
 	}
+	public boolean isClosed() {
+		return isCLosed;
+	}
+	public boolean isChairsIdle() {
+		if (idleChairs>0) {
+			return true;
+		}
+		return false;
+	}
+	public double getHairdresserFinishTime() {
+		return currentTime + URSCutting.next();
+	}
+	public double getNextArrivalTime() {
+		return currentTime + ERS.next();
+	}
+	public double getUnsatisfiedCustomerArrivalTime() {
+		return currentTime + URSReturning.next();
+	}
+	
 	//Update Methods
 	public void updateIdleTime() {
 		totalTimeIdle +=(currentTime-timeForLastEvent)*idleChairs;

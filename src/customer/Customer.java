@@ -5,7 +5,8 @@ package customer;
  *
  */
 public class Customer {
-	int id;
+	private int id;
+	private boolean notSatisfied;
 	
 	/**
 	 * The class constructor
@@ -13,6 +14,10 @@ public class Customer {
 	 */
 	Customer(int id) {
 		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 	
 }
