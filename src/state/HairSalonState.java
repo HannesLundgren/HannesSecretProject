@@ -53,6 +53,12 @@ public class HairSalonState extends State {
 		
 		
 		
+		
+	}
+	public void callChanged() {
+		setChanged();
+		notifyObservers();
+		
 	}
 	
 	public Customer generateCustomer() {
@@ -89,6 +95,9 @@ public class HairSalonState extends State {
 	
 	public void setTimeForLastEvent(double time) {
 		timeForLastEvent = time;
+	}
+	public void setCurrentCustomer(Customer cust) {
+		currentCustomer = cust;
 	}
 	
 	//Getters

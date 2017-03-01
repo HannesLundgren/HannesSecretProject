@@ -1,5 +1,6 @@
 package event;
 
+import customer.Customer;
 import simulator.EventStore;
 import state.HairSalonState;
 
@@ -18,6 +19,12 @@ public class CustomerEntersEvent extends HairSalonEvent {
 		state.setCurrentTime(startTime);
 		state.updateIdleTime();
 		state.updateQueueTime();
+		
+		Customer newCust = state.generateCustomer();
+		state.setCurrentCustomer(newCust);
+		
+		state.callChanged();
+		
 		
 		
 		
