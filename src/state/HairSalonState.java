@@ -29,7 +29,7 @@ public class HairSalonState extends State {
 	private int w;
 	
 	private long seed = 1000;
-	private double p;
+	private double acceptable = 0.26;
 	private double lambda = 5;
 	private double hMin = 30;
 	private double hMax = 60;
@@ -59,12 +59,19 @@ public class HairSalonState extends State {
 		
 		
 	}
+	/**
+	 * Called when Observers are to be notified.
+	 */
 	public void callChanged() {
 		setChanged();
 		notifyObservers();
 		
 	}
 	
+	/**
+	 * Generates customers.
+	 * @return Returns a new customer.
+	 */
 	public Customer generateCustomer() {
 		return custGen.generateCustomer();
 	}
@@ -77,16 +84,32 @@ public class HairSalonState extends State {
 //		c.setNotSatisfied();
 //	}
 	
+	/**
+	 * Adds a customer to the queue.
+	 * @param c The customer to be added.
+	 * @return A truth value depending on if the customer could be added to the queue or not.
+	 */
 	public boolean addToQueue(Customer c) {
 		return queue.add(c);
 	}
 
+	/**
+	 * Javadoc pliz
+	 * @param lambda
+	 * @param seed
+	 */
 	public void setCustomerArrivalDistribution(double lambda,long seed) {
 		this.lambda = lambda;
 		this.seed = seed;
 		ERS = new ExponentialRandomStream(lambda,seed);
 	}
 	
+	/**
+	 * Javadoc pliz
+	 * @param hMin
+	 * @param hMax
+	 * @param seed
+	 */
 	public void setCuttingTimeDistribution(double hMin, double hMax,long seed) {
 		this.hMin = hMin;
 		this.hMax = hMax;
@@ -94,6 +117,13 @@ public class HairSalonState extends State {
 		URSCutting = new UniformRandomStream(hMin, hMax, seed);
 
 	}
+	
+	/**
+	 * Javadoc pliz
+	 * @param dMin
+	 * @param dMax
+	 * @param seed
+	 */
 	public void setReturningTimeDistribution(double dMin, double dMax,long seed) {
 		this.dMin = dMin;
 		this.dMax = dMax;
@@ -101,100 +131,214 @@ public class HairSalonState extends State {
 		URSReturning = new UniformRandomStream(dMin, dMax, seed);
 	}
 	
+	/**
+	 * Set current event.
+	 * @param event The event to be set as the current event.
+	 */
 	public void setCurrentEvent(Event event) {
 		super.currentEvent = event;
 	}
+	
+	/**
+	 * Sets the current time.
+	 * @param currentTime The time to be set as the current time.
+	 */
 	public void setCurrentTime(double currentTime) {
 		this.currentTime = currentTime;
 	}
 	
+	/**
+	 * Sets the timeForLastEvent.
+	 * @param time The timeForLastEvent.
+	 */
 	public void setTimeForLastEvent(double time) {
 		timeForLastEvent = time;
 	}
+	
+	/**
+	 * Sets the current customer.
+	 * @param cust The customer to be set as the current customer.
+	 */
 	public void setCurrentCustomer(Customer cust) {
 		currentCustomer = cust;
 	}
+	
+	/**
+	 * Decreases the amount of idle chairs.
+	 */
 	public void decreaseIdleChairs() {
 		idleChairs--;
 	}
+	
+	/**
+	 * Increases the amount of idle chairs.
+	 */
 	public void increaseIdleChairs() {
 		idleChairs++;
 	}
 	//Getters
 	
+	/**
+	 * @return The current time is returned.
+	 */
 	public double getCurrentTime() {
 		return currentTime;
 	}
 	
+	/**
+	 * @return The current event is returned.
+	 */
 	public String getCurrentEvent() {
 		return currentEvent.toString();
 	}
 	
+	/**
+	 * @return The unique customer id is returned.
+	 */
 	public int getCustomerId() {
 		return 10;
 	}
+	
+	/**
+	 * @return The amount of idle chairs is returned.
+	 */
 	public int getIdleChairs() {
 		return idleChairs;
 	}
+	
+	/**
+	 * @return The totalTimeIdle
+	 */
 	public double getTimeIdle() {
 		return totalTimeIdle;
 	}
+	
+	/**
+	 * @return The totalTimeWaiting
+	 */
 	public double getTimeWaiting() {
 		return totalTimeWaiting;
 	}
+	
+	/**
+	 * Gets the number of customers in queue.
+	 * @return The size of the queue is returned.
+	 */
 	public int getNumWaiting() {
 		return queue.size();
 	}
+	
+	/**
+	 * Checks if the queue is empty.
+	 * @return A truth value from the method isEmpty().
+	 */
 	public boolean isQueueEmpty() {
 		return queue.isEmpty();
 	}
+	
+	/**
+	 * @return The numLost is returned.
+	 */
 	public int getNumLost() {
 		return numLost;
 	}
+	
+	/**
+	 * @return The numReturning is returned.
+	 */
 	public int getNumReturning() {
 		return numReturning;
 	}
 	
+	/**
+	 * @return The current customer is returned.
+	 */
 	public Customer getCurrentCustomer() {
 		return currentCustomer;
 	}
+	
+	/**
+	 * @return The value of isCloesed is returned.
+	 */
 	public boolean isClosed() {
 		return isCLosed;
 	}
+	
+	/**
+	 * Checks if there are any available chairs.
+	 * @return If the number of chairs available is larger than 0, true is returned. Else false is returned.
+	 */
 	public boolean isChairsIdle() {
 		if (idleChairs>0) {
 			return true;
 		}
 		return false;
 	}
+	
+	/**
+	 * @return The time the haircut will be finished.
+	 */
 	public double getHairdresserFinishTime() {
 		return currentTime + URSCutting.next();
 	}
+	
+	/** 
+	 * @return The time which the next customer will arrive.
+	 */
 	public double getNextArrivalTime() {
 		return currentTime + ERS.next();
 	}
+	
+	/**
+	 * @return The time which the unsatisfied customer arrives.
+	 */
 	public double getUnsatisfiedCustomerArrivalTime() {
 		return currentTime + URSReturning.next();
 	}
+	
+	/**
+	 * @return The customer which is in position 1 in the queue.
+	 */
 	public Customer getFirst() {
 		return queue.getFirst();
 	}
 	//Update Methods
+	/**
+	 * Updates totalTimeIdle
+	 */
 	public void updateIdleTime() {
 		totalTimeIdle +=(currentTime-timeForLastEvent)*idleChairs;
 	}
+	
+	/**
+	 * Updates the time spent in queue.
+	 */
 	public void updateQueueTime() {
 		totalTimeWaiting += (currentTime-timeForLastEvent)*queue.size();
 	}
+	
+	/**
+	 * Increases numLost(What is the task of numLost?)
+	 */
 	public void increaseNumLost() {
 		numLost++;
 	}
+	
+	/**
+	 * Removes the first element in the queue.
+	 */
 	public void removeFirst() {
 		queue.removeFirst();
 	}
+	
+	/**
+	 * Checks if the customer is satisfied with their haircut.
+	 * @param c The customer in question.
+	 * @return  A truth value depending on if a random double-value between 0.0 and 1.0 is less than 
+	 * the double acceptable or not.
+	 */
 	public boolean checkHaircut(Customer c) {
-		// TODO Auto-generated method stub
-		if(rand.nextDouble()<p) {
+		if(rand.nextDouble() < acceptable) {
 			c.setPriority();
 			return true;
 		}
