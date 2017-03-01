@@ -1,5 +1,7 @@
 package state;
 
+import java.util.Random;
+
 import customer.Customer;
 import customer.CustomerGenerator;
 import random.ExponentialRandomStream;
@@ -41,6 +43,7 @@ public class HairSalonState extends State {
 	
 	private FIFO queue;
 	private CustomerGenerator custGen = new CustomerGenerator();
+	Random rand = new Random();
 	
 	
 	public HairSalonState(int totalChairs, int maxQueueSize) {
@@ -65,6 +68,17 @@ public class HairSalonState extends State {
 		return custGen.generateCustomer();
 	}
 	//Setters
+	
+	public void SetSatisfied(Customer c) {
+		c.setSatisfied();
+	}
+	public void SetNotSatisfied(Customer c) {
+		c.setNotSatisfied();
+	}
+	
+	public boolean addToQueue(Customer c) {
+		return queue.add(c);
+	}
 
 	public void setCustomerArrivalDistribution(double lambda,long seed) {
 		this.lambda = lambda;
@@ -114,7 +128,7 @@ public class HairSalonState extends State {
 	public String getCurrentEvent() {
 		return currentEvent.toString();
 	}
-	//INTE KLARRRRR
+	
 	public int getCustomerId() {
 		return 10;
 	}
@@ -161,13 +175,30 @@ public class HairSalonState extends State {
 	public double getUnsatisfiedCustomerArrivalTime() {
 		return currentTime + URSReturning.next();
 	}
-	
+	public Customer getFirst() {
+		return queue.getFirst();
+	}
 	//Update Methods
 	public void updateIdleTime() {
 		totalTimeIdle +=(currentTime-timeForLastEvent)*idleChairs;
 	}
 	public void updateQueueTime() {
 		totalTimeWaiting += (currentTime-timeForLastEvent)*queue.size();
+	}
+	public void increaseNumLost() {
+		numLost++;
+	}
+	public void removeFirst() {
+		queue.removeFirst();
+	}
+	public boolean checkHaircut(Customer c) {
+		// TODO Auto-generated method stub
+		if(rand.nextDouble()<p) {
+			c.setPriority();
+			return true;
+		}
+		return false;
+			
 	}
 	
 

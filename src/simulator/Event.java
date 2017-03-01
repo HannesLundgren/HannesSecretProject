@@ -9,6 +9,13 @@ public abstract class Event {
 	//Time when the event is supposed to be happen.
 	protected double startTime;
 	protected EventStore store;
+	
+	
+//	public Event(double startTime,EventStore store) {
+//		this.startTime = startTime;
+//		this.store = store;
+//	}
+	
 	/**
 	 * Method that execute the effect of this event
 	 */
@@ -18,4 +25,9 @@ public abstract class Event {
 	 * as a String
 	 */
 	public abstract String toString();
+	
+	public double getStartTime() {
+		return startTime;
+	}
+	
 }

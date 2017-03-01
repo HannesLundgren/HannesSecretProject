@@ -14,17 +14,19 @@ public class FIFO{
 		this.maxQueueSize = maxQueueSize;
 	}
 	
-	public void add(Customer cust) {
+	public boolean add(Customer cust) {
 		if(size() < maxQueueSize){
 			fifoList.add(cust);
+			return true;
 		}
+		return false;
 	}
 	
 	public boolean isEmpty() {
 		return size() == 0;
 	}
 
-	public Object getFirst() throws NoSuchElementException {
+	public Customer getFirst() throws NoSuchElementException {
 		if(!this.isEmpty()){
 			return fifoList.get(0);
 		} else {

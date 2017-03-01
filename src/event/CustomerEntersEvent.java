@@ -15,6 +15,9 @@ public class CustomerEntersEvent extends HairSalonEvent {
 
 	@Override
 	public void execute() {
+		
+		
+		
 		state.setTimeForLastEvent(state.getCurrentTime());
 		state.setCurrentEvent(this);
 		state.setCurrentTime(startTime);
@@ -35,9 +38,15 @@ public class CustomerEntersEvent extends HairSalonEvent {
 		
 		if (state.isChairsIdle()){
 			state.decreaseIdleChairs();
-			store.add(new );
-			//FORTSÄTT EFTER HAIRCUTFINISHED
-			
+			double timeForNext = state.getHairdresserFinishTime();
+			HairSalonEvent finished = new HaircutFinishedEvent(timeForNext,state,store, cust);
+			store.add(finished);
+		}else {
+			if (state.addToQueue(cust)) {
+				
+			}else {
+				state.increaseNumLost();
+			}
 		}
 		
 		

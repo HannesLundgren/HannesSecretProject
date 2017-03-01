@@ -25,11 +25,11 @@ public class UniformRandomStream {
 	    return lower+rand.nextDouble()*width;
 	}
 	
-	public static void main(String[] args) {
-		
-		UniformRandomStream a = new UniformRandomStream(100d,110d);
-		
-		System.out.println(a.next());
-	}
+//	public static void main(String[] args) {
+//		
+//		UniformRandomStream a = new UniformRandomStream(100d,110d);
+//		
+//		System.out.println(a.next());
+//	}
 }
 
