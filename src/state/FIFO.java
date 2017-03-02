@@ -15,9 +15,10 @@ public class FIFO{
 		this.maxQueueSize = maxQueueSize;
 	}
 	
-	public boolean add(Customer cust) {
+	public boolean add(Customer cust, double currentTime) {
 		if(size() < maxQueueSize){
 			fifoList.add(cust);
+			cust.setQueueEnterTime(currentTime);
 			return true;
 		}
 		return false;
@@ -74,8 +75,8 @@ public class FIFO{
 	public int getMaxSize() {
 		return maxQueueSize;
 	}
-	public double getLastTime() {
-		return Queue
+	public double getLastQueueEnterTime() {
+		return fifoList.get(maxQueueSize-1).getQueueEnterTime();
 	}
 
 }

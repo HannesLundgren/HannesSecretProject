@@ -1,6 +1,6 @@
 package event;
 
-import java.util.Random;
+
 
 import customer.Customer;
 import simulator.EventStore;

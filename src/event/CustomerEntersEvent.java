@@ -57,7 +57,7 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Enters"
+		return "Enters";
 	}
 	
 }
