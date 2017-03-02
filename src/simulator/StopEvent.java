@@ -7,6 +7,7 @@ package simulator;
  */
 public class StopEvent extends Event {
 
+	protected State state;
 	
 	// UNDER CONSTRUCTION
 	@Override

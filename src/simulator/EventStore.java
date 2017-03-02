@@ -18,6 +18,12 @@ public class EventStore {
 	public void add(Event e) {
 		store.add(e);
 	}
+	public Event getFirst() {
+		return store.poll();
+	}
+	public boolean isEmpty() {
+		return store.size()==0;
+	}
 	
 	
 	
