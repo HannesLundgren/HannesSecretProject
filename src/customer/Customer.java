@@ -6,10 +6,10 @@ package customer;
  */
 public class Customer {
 	private int id;
-
-//	private boolean notSatisfied = false;
+	private double queueEnterTime;
 	private boolean priority = false;
-
+	
+	
 	
 	/**
 	 * The class constructor
@@ -19,8 +19,17 @@ public class Customer {
 		this.id = id;
 	}
 	
-	//getter
-
+	
+	//FIXA TID NÄR DE STÄLLER SIG I KÖN
+	
+	public double getQueueEnterTime() {
+		return queueEnterTime;
+	}
+	public void setQueueEnterTime(double currentTime) {
+		this.queueEnterTime = currentTime;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -33,13 +42,7 @@ public class Customer {
 	public void removePriority() {
 		priority = false;
 	}
-//	public void setSatisfied() {
-//		notSatisfied = false;
-//	}
-//	public void setNotSatisfied() {
-//		notSatisfied = true;
-//	}
-//	
+	
 
 	
 }

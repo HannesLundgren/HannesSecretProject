@@ -10,7 +10,7 @@ import customer.Customer;
  *
  */
 public class FIFO{
-	//fifolist is the customer queue
+	//fifoList is the customer queue
 	private ArrayList<Customer> fifoList = new ArrayList<Customer>();
 	private int maxQueueSize;
 	
@@ -21,8 +21,9 @@ public class FIFO{
 	public FIFO(int maxQueueSize) {
 		this.maxQueueSize = maxQueueSize;
 	}
+	
 	/**
-	 * This method adds customers to the queue depending on its maxsize.
+	 * This method add to the queue depending on its max size.
 	 * @param cust A customer
 	 * @return true if the queue isn´t full, otherwise false.
 	 */
@@ -35,7 +36,7 @@ public class FIFO{
 	}
 	/**
 	 * 
-	 * @return true if the customerqueue is empty
+	 * @return true if the customer queue is empty
 	 */
 	public boolean isEmpty() {
 		return size() == 0;
@@ -85,12 +86,20 @@ public class FIFO{
 			throw new NoSuchElementException();
 		}
 	}
+	
 	/**
 	 * 
 	 * @return how many customers there is in the queue
 	 */
 	public int size() {
 		return fifoList.size();
+	}
+	
+	/**
+	 * This method will clear the queue with all it´s customers
+	 */
+	public void clearQueue() {
+		fifoList.clear();
 	}
 
 }

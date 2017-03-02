@@ -90,7 +90,8 @@ public class HairSalonState extends State {
 	 * @return A truth value depending on if the customer could be added to the queue or not.
 	 */
 	public boolean addToQueue(Customer c) {
-		return queue.add(c);
+		
+		return queue.add(c,currentTime);
 	}
 
 	/**
@@ -347,6 +348,11 @@ public class HairSalonState extends State {
 	}
 	public boolean addPriorityCustomer(Customer c) {
 		// TODO Auto-generated method stub
+		if (queue.size()==queue.getMaxSize()) {
+			totalTimeWaiting -= currentTime-queue.getLastQueueEnterTime();
+			queue.removeLast();
+			
+		}
 		return queue.addPriorityCustomer(c);
 	}
 	
