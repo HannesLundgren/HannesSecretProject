@@ -2,7 +2,7 @@ package simulator;
 import java.util.Comparator;
 /**
  * EventTimeComparator class is used when the simulation needs 
- * to compare the event time between two events.
+ * to compare the starttime between two events.
  * @author Robert Högberg
  *
  */
