@@ -17,6 +17,10 @@ public class Customer {
 		this.id = id;
 	}
 	
+	
+	//FIXA TID NÄR DE STÄLLER SIG I KÖN
+	
+	
 	public int getId() {
 		return id;
 	}

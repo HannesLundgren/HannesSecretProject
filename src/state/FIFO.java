@@ -2,6 +2,7 @@ package state;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 
 import customer.Customer;
 
@@ -36,12 +37,17 @@ public class FIFO{
 	
 	
 	public boolean addPriorityCustomer(Customer cust) {
+//		if (size() == maxQueueSize) {
+//			
+//			removeLast();
+//		}
 		for (int i = 0;i<size();i++) {
 			if(!fifoList.get(i).Priority()) {
 				fifoList.add(i, cust);
 				return true;
 			}
 		}
+		
 		return false;
 	}
 //	public void setFirst(Customer cust){
@@ -50,7 +56,9 @@ public class FIFO{
 //			fifoList.remove(size()-1);
 //		}
 //	}
-	
+	public void removeLast() {
+		fifoList.remove(maxQueueSize-1); //KANSKE?! -1 eller inte?
+	}
 
 	public void removeFirst() throws NoSuchElementException {
 		if(!this.isEmpty()){
@@ -62,6 +70,12 @@ public class FIFO{
 
 	public int size() {
 		return fifoList.size();
+	}
+	public int getMaxSize() {
+		return maxQueueSize;
+	}
+	public double getLastTime() {
+		return Queue
 	}
 
 }

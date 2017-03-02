@@ -31,8 +31,10 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 			HairSalonEvent finished = new HaircutFinishedEvent(timeForNext,state,store, cust);
 			store.add(finished);
 		}else {
-			if (!state.addPriorityCustomer(cust)){
-				state.
+			if (!state.addPriorityCustomer(cust)){ //SKRIV OM ALLA KÖMETODER MED GET ISTÄLLET?
+				double timeForNext = state.getUnsatisfiedCustomerArrivalTime();
+				HairSalonEvent returning = new PriorityCustomerEntersEvent(timeForNext,state,store,cust);
+				store.add(returning);
 			}
 		}
 		

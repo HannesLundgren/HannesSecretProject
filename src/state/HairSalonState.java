@@ -203,6 +203,11 @@ public class HairSalonState extends State {
 	}
 	public boolean addPriorityCustomer(Customer c) {
 		// TODO Auto-generated method stub
+		if (queue.size()==queue.getMaxSize()) {
+			totalTimeWaiting -= queue.getLastTime();
+			queue.removeLast();
+			
+		}
 		return queue.addPriorityCustomer(c);
 	}
 	
