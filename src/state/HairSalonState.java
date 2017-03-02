@@ -24,19 +24,20 @@ public class HairSalonState extends State {
 	private Customer currentCustomer;
 	private double timeForLastEvent;
 	private int totalCustomers;
+	private double closingTime;
 	
 	
 	private int w;
 	
 	private long seed = 1000;
-	private double acceptable = 0.26;
+	private double p = 0.26;
 	private double lambda = 5;
 	private double hMin = 30;
 	private double hMax = 60;
 	private double dMin = 60;
 	private double dMax = 120;
 	
-	private boolean isCLosed = false;
+	private boolean isClosed = false;
 	
 	private ExponentialRandomStream ERS;
 	private UniformRandomStream URSCutting;
@@ -47,9 +48,10 @@ public class HairSalonState extends State {
 	private Random rand = new Random();
 	
 	
-	public HairSalonState(int totalChairs, int maxQueueSize) {
+	public HairSalonState(int totalChairs, int maxQueueSize, double closingTime) {
 		this.totalChairs = totalChairs;
 		this.w = maxQueueSize;
+		this.closingTime = closingTime;
 		queue = new FIFO(w);
 		setCustomerArrivalDistribution(lambda,seed);
 		setCuttingTimeDistribution(hMin,hMax,seed);
@@ -189,8 +191,8 @@ public class HairSalonState extends State {
 	/**
 	 * @return The current event is returned.
 	 */
-	public String getCurrentEvent() {
-		return currentEvent.toString();
+	public Event getCurrentEvent() {
+		return currentEvent;
 	}
 	
 	/**
@@ -355,6 +357,44 @@ public class HairSalonState extends State {
 		}
 		return queue.addPriorityCustomer(c);
 	}
+	public double getClosingTime() {
+		return closingTime;
+		
+	}
+	public void setClosed() {
+		isClosed = true;
+		
+	}
+	public int getMaxQueueSize() {
+		// TODO Auto-generated method stub
+		return w;
+	}
+	public double getP() {
+		// TODO Auto-generated method stub
+		return p;
+	}
+	public double getLambda() {
+		// TODO Auto-generated method stub
+		return lambda;
+	}
+	public double getHMin(){
+		// TODO Auto-generated method stub
+		return hMin;
+	}
+	public double getHMax() {
+		// TODO Auto-generated method stub
+		return hMax;
+	}
+	public double getDMin() {
+		// TODO Auto-generated method stub
+		return dMin;
+	}
+	public double getDMax() {
+		// TODO Auto-generated method stub
+		return dMax;
+	}
+	
+	
 	
 
 	

@@ -4,20 +4,12 @@ package simulator;
  * @author hanneslundgren
  *
  */
-public class StartEvent extends Event{
+public abstract class StartEvent extends Event{
 
-	@Override
-	// UNDER CONSTRUCTION
-//	public StartEvent(State currentState,)
+	protected double startTime = 0;
+
+
 	
-	public void execute() {
-		
-	}
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

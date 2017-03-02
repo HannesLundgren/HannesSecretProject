@@ -16,7 +16,9 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	@Override
 	public void execute() {
 		
-		
+		if(state.getClosingTime()<startTime) {
+			return;
+		}
 		
 		state.setTimeForLastEvent(state.getCurrentTime());
 		state.setCurrentEvent(this);
@@ -31,10 +33,10 @@ public class CustomerEntersEvent extends HairSalonEvent {
 		//Here the view has been updated and the event can 
 		//have an effect
 		
-		if (state.isClosed()) {
-			//SKRIV OM?!
-			return;
-		}
+//		if (state.isClosed()) {
+//			//SKRIV OM?!
+//			return;
+//		}
 		
 		if (state.isChairsIdle()){
 			state.decreaseIdleChairs();
@@ -48,6 +50,9 @@ public class CustomerEntersEvent extends HairSalonEvent {
 				state.increaseNumLost();
 			}
 		}
+		//Schedule new customer enters event
+		HairSalonEvent nextCustomer = new CustomerEntersEvent(state.getNextArrivalTime(), state, store);
+		store.add(nextCustomer);
 		
 		
 		
