@@ -113,11 +113,4 @@ public class FIFO{
 		return fifoList.size();
 	}
 	
-	/**
-	 * This method will clear the queue with all it´s customers
-	 */
-	public void clearQueue() {
-		fifoList.clear();
-	}
-
 }

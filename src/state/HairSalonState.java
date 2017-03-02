@@ -393,6 +393,9 @@ public class HairSalonState extends State {
 		// TODO Auto-generated method stub
 		return dMax;
 	}
+	public int getTotCutCustomers() {
+		return totalCustomers;
+	}
 	
 	
 	
