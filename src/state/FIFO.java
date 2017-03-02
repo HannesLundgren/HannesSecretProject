@@ -21,6 +21,13 @@ public class FIFO{
 	public FIFO(int maxQueueSize) {
 		this.maxQueueSize = maxQueueSize;
 	}
+	/**
+	 * 
+	 * @return maxQueueSize
+	 */
+	public int getMaxSize() {
+		return maxQueueSize;
+	}
 	
 	/**
 	 * This method add to the queue depending on its max size.
@@ -82,6 +89,17 @@ public class FIFO{
 	public void removeFirst() throws NoSuchElementException {
 		if(!this.isEmpty()){
 			fifoList.remove(0);
+		} else {
+			throw new NoSuchElementException();
+		}
+	}
+	/**
+	 * This method will remove the last customer in the queue, if the queue is not empty.
+	 * @throws NoSuchElementException
+	 */
+	public void removeLast() throws NoSuchElementException {
+		if(!this.isEmpty()){
+			fifoList.remove(-1);
 		} else {
 			throw new NoSuchElementException();
 		}
