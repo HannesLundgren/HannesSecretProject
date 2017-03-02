@@ -40,7 +40,10 @@ public class HairSalonView extends View {
 		}
 		else if(state.getCurrentEvent() instanceof HairSalonStopEvent) {
 			
+		}else {
+			
 		}
+			
 	}
 
 }
