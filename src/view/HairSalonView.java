@@ -24,7 +24,7 @@ public class HairSalonView extends View {
 		this.state = state;
 		state.addObserver(this);
 	}
-	
+	//Not done!!!
 	public void startInfoPrint() {
 		System.out.println("Number of chairs available: " + state.getIdleChairs());
 		System.out.println("Maximum queue size: "+ state.getMaxQueueSize());
