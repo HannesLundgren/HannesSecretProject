@@ -17,6 +17,7 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	public void execute() {
 		
 		if(state.getClosingTime()<startTime) {
+			state.setClosed();
 			return;
 		}
 		

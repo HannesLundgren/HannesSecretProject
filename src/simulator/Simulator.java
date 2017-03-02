@@ -3,8 +3,11 @@ package simulator;
 public class Simulator {
 	
 	private EventStore store;
-	public Simulator(EventStore store) {
+	private State state;
+	
+	public Simulator(EventStore store, State state) {
 		this.store = store;
+		
 	}
 	
 	
@@ -13,7 +16,7 @@ public class Simulator {
 		do {
 			store.getFirst().execute();
 
-		} while (!store.isEmpty());
+		} while (!state.emergBrake);
 		
 	}
 }		

@@ -34,9 +34,11 @@ public class FIFO{
 	 * @param cust A customer
 	 * @return true if the queue isn´t full, otherwise false.
 	 */
-	public boolean add(Customer cust) {
+	public boolean add(Customer cust, double currentTime) {
 		if(size() < maxQueueSize){
+			cust.setQueueEnterTime(currentTime);
 			fifoList.add(cust);
+			
 			return true;
 		}
 		return false;
@@ -111,6 +113,9 @@ public class FIFO{
 	 */
 	public int size() {
 		return fifoList.size();
+	}
+	public double getLastQueueEnterTime() {
+		return fifoList.get(maxQueueSize-1).getQueueEnterTime();
 	}
 	
 }

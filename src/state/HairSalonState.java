@@ -264,7 +264,7 @@ public class HairSalonState extends State {
 	 * @return The value of isCloesed is returned.
 	 */
 	public boolean isClosed() {
-		return isCLosed;
+		return isClosed;
 	}
 	
 	/**
@@ -341,7 +341,7 @@ public class HairSalonState extends State {
 	 * the double acceptable or not.
 	 */
 	public boolean checkHaircut(Customer c) {
-		if(rand.nextDouble() < acceptable) {
+		if(rand.nextDouble() < p) {
 			c.setPriority();
 			return true;
 		}

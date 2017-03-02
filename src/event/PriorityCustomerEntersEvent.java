@@ -19,6 +19,7 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 		state.setTimeForLastEvent(state.getCurrentTime());
 		state.setCurrentEvent(this);
 		state.setCurrentTime(startTime);
+		
 		state.updateIdleTime();
 		state.updateQueueTime();
 		
