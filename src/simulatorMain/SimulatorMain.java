@@ -15,8 +15,8 @@ public class SimulatorMain {
 		// TODO Auto-generated method stub
  
 		EventStore store = new EventStore();
-		HairSalonState state = new HairSalonState(5, 10, 480);
-		state.setCustomerArrivalDistribution(0.25);
+		HairSalonState state = new HairSalonState(5, 5, 500);
+//		state.setCustomerArrivalDistribution(0.25);
 		Simulator sim = new Simulator (store, state);
 		HairSalonView view = new HairSalonView(state);
 		HairSalonStartEvent start = new HairSalonStartEvent(state, store);

@@ -34,7 +34,7 @@ public class HairSalonState extends State {
 	
 	private long seed = 1000;
 	private double p = 0.10;
-	private double lambda = 0.0666667;
+	private double lambda = 0.1;
 	private double hMin = 30;
 	private double hMax = 60;
 	private double dMin = 60;
