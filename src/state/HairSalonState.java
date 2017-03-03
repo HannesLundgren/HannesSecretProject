@@ -25,6 +25,7 @@ public class HairSalonState extends State {
 	private double timeForLastEvent;
 	private int totalCustomers;
 	private double closingTime;
+	private double totalCuttingTime;
 	
 	
 	private int w;
@@ -88,6 +89,13 @@ public class HairSalonState extends State {
 //		c.setNotSatisfied();
 //	}
 	
+	public void increaseCuttinTime(double time) {
+		totalCuttingTime += time;
+	}
+	
+	public double getAverageCuttingTime() {
+		return totalCuttingTime/totalCustomers;
+	}
 	/**
 	 * Adds a customer to the queue.
 	 * @param c The customer to be added.
