@@ -22,5 +22,17 @@ public class ExponentialRandomStream {
 	}
 	
 	
+	public static void main(String[] args) {
+	
+	ExponentialRandomStream a = new ExponentialRandomStream(5);
+	
+	System.out.println(a.next());
+	System.out.println(a.next());
+	System.out.println(a.next());
+	System.out.println(a.next());
+	System.out.println(a.next());
+}
+	
+	
 }
 

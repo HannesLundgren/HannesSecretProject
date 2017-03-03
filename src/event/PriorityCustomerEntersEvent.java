@@ -17,8 +17,11 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 	public void execute() {
 		
 		state.setTimeForLastEvent(state.getCurrentTime());
+		
 		state.setCurrentEvent(this);
 		state.setCurrentTime(startTime);
+		state.setCurrentCustomer(cust);
+	
 		
 		state.updateIdleTime();
 		state.updateQueueTime();
@@ -45,7 +48,7 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Returns";
+		return "Priority Customer Returns ";
 	}
 
 

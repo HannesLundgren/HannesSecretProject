@@ -42,10 +42,10 @@ public class CustomerEntersEvent extends HairSalonEvent {
 		if (state.isChairsIdle()){
 			state.decreaseIdleChairs();
 			double timeForNext = state.getHairdresserFinishTime();
-			HairSalonEvent finished = new HaircutFinishedEvent(timeForNext,state,store, cust);
+			HairSalonEvent finished = new HaircutFinishedEvent(timeForNext,state,store, newCust);
 			store.add(finished);
 		}else {
-			if (state.addToQueue(cust)) {
+			if (state.addToQueue(newCust)) {
 				
 			}else {
 				state.increaseNumLost();
@@ -63,7 +63,7 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Enters";
+		return "Customer Enters";
 	}
 	
 }

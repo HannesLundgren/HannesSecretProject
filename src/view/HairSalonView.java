@@ -18,10 +18,10 @@ import state.HairSalonState;
  */
 public class HairSalonView extends View {
 	HairSalonState state;
-<<<<<<< Updated upstream
-=======
+
+
 	Customer cust; //CUstomer är inte initierat. 
->>>>>>> Stashed changes
+
 
 	
 	public HairSalonView(HairSalonState state) {
@@ -50,33 +50,31 @@ public class HairSalonView extends View {
 		}
 		
 		else if (state.getCurrentEvent() instanceof HairSalonStopEvent) {
-			System.out.printf("%s %s %s %s %s %s %s %s %n",
-					state.getTotCutCustomers(),
-					)
+//			System.out.printf("%s %s %s %s %s %s %s %s %n")
+			System.out.println("SLUT");
+
 			
 		}else {
 			System.out.printf("%s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n",
 					"Time: " + numbform.format((state.getCurrentTime())),
-<<<<<<< Updated upstream
+
 					"Event: " + state.getCurrentEvent().toString(),
 					"ID: " + state.getCurrentCustomer().getId(),
-=======
-					"Event: " + event.toString(),
-					"ID: " + cust.getId(), //Cust ska inte finnas vid detta event
->>>>>>> Stashed changes
+
 					"Idle: " + state.getIdleChairs(),
 					"TimeIdle: " + numbform.format((state.getTimeIdle())),
 					"TimeWating: " + numbform.format(state.getTimeWaiting()),
 					"NumWaiting: " + state.getNumWaiting(),
 					"NumLost: " + state.getNumLost(),
-					"NumReturning: " + state.getNumReturning());
-<<<<<<< Updated upstream
-		}
-=======
-						
-		}else if(state.)
->>>>>>> Stashed changes
-				
-	}
+					"NumReturning: " + state.getNumReturning()); }
+		
 
+		}
+
+						
+		
+
+				
 }
+
+

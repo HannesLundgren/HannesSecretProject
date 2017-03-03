@@ -50,12 +50,14 @@ public class HairSalonState extends State {
 	
 	public HairSalonState(int totalChairs, int maxQueueSize, double closingTime) {
 		this.totalChairs = totalChairs;
+		this.idleChairs = totalChairs;//HEJ
 		this.w = maxQueueSize;
 		this.closingTime = closingTime;
 		queue = new FIFO(w);
-		setCustomerArrivalDistribution(lambda,seed);
-		setCuttingTimeDistribution(hMin,hMax,seed);
-		setReturningTimeDistribution(dMin,dMax,seed);
+		
+		setCustomerArrivalDistribution(lambda);
+		setCuttingTimeDistribution(hMin,hMax);
+		setReturningTimeDistribution(dMin,dMax);
 		
 		
 		
@@ -101,10 +103,10 @@ public class HairSalonState extends State {
 	 * @param lambda
 	 * @param seed
 	 */
-	public void setCustomerArrivalDistribution(double lambda,long seed) {
+	public void setCustomerArrivalDistribution(double lambda) {
 		this.lambda = lambda;
-		this.seed = seed;
-		ERS = new ExponentialRandomStream(lambda,seed);
+//		this.seed = seed;
+		ERS = new ExponentialRandomStream(lambda);
 	}
 	
 	/**
@@ -113,11 +115,11 @@ public class HairSalonState extends State {
 	 * @param hMax
 	 * @param seed
 	 */
-	public void setCuttingTimeDistribution(double hMin, double hMax,long seed) {
+	public void setCuttingTimeDistribution(double hMin, double hMax) {
 		this.hMin = hMin;
 		this.hMax = hMax;
-		this.seed = seed;
-		URSCutting = new UniformRandomStream(hMin, hMax, seed);
+//		this.seed = seed;
+		URSCutting = new UniformRandomStream(hMin, hMax);
 
 	}
 	
@@ -127,11 +129,11 @@ public class HairSalonState extends State {
 	 * @param dMax
 	 * @param seed
 	 */
-	public void setReturningTimeDistribution(double dMin, double dMax,long seed) {
+	public void setReturningTimeDistribution(double dMin, double dMax) {
 		this.dMin = dMin;
 		this.dMax = dMax;
-		this.seed = seed; 
-		URSReturning = new UniformRandomStream(dMin, dMax, seed);
+//		this.seed = seed; 
+		URSReturning = new UniformRandomStream(dMin, dMax);
 	}
 	
 	/**
@@ -177,6 +179,7 @@ public class HairSalonState extends State {
 	 * Increases the amount of idle chairs.
 	 */
 	public void increaseIdleChairs() {
+	 
 		idleChairs++;
 	}
 	//Getters
@@ -289,7 +292,8 @@ public class HairSalonState extends State {
 	 * @return The time which the next customer will arrive.
 	 */
 	public double getNextArrivalTime() {
-		return currentTime + ERS.next();
+//		return currentTime + ERS.next();
+		return currentTime + 15;
 	}
 	
 	/**

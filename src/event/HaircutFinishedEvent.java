@@ -50,7 +50,7 @@ public class HaircutFinishedEvent extends HairSalonEvent {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Customer Finished";
 	}
 }
 

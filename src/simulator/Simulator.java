@@ -11,13 +11,16 @@ public class Simulator {
 	}
 	
 
-	public void run() {
+	public void run(StartEvent start, StopEvent stop) {
+		start.execute();
 	
 		do {
-			if(!store.isEmpty()) {
-				store.getFirst().execute();
+			store.getFirst().execute();
+			if (store.isEmpty()) {
+				stop.execute();
 			}
-		} while (!state.emergBrake);
+			
+		} while (true);
 		
 		
 	}

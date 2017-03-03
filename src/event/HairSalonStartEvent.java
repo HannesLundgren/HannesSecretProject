@@ -33,7 +33,7 @@ public class HairSalonStartEvent extends StartEvent {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Opens";
+		return "Simulation starts";
 	}
 	
 }
