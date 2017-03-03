@@ -50,7 +50,10 @@ public class HairSalonView extends View {
 		
 		else if (state.getCurrentEvent() instanceof HairSalonStopEvent) {
 //			System.out.printf("%s %s %s %s %s %s %s %s %n")
-			System.out.println("SLUT");
+			
+			System.out.println(state.getAverageCuttingTime());
+			System.out.println(state.getLatestCustomerFinishTime());
+			
 
 			
 		}else {

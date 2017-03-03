@@ -14,6 +14,8 @@ public class FIFO{
 	private ArrayList<Customer> fifoList = new ArrayList<Customer>();
 	private int maxQueueSize;
 	
+	private int largestQueueSize = 0; 
+	
 	/**
 	 * The FIFO constructor sets the maxsize for the customer queue.
 	 * @param maxQueueSize
@@ -36,8 +38,12 @@ public class FIFO{
 	 */
 	public boolean add(Customer cust, double currentTime) {
 		if(size() < maxQueueSize){
+			
 			cust.setQueueEnterTime(currentTime);
 			fifoList.add(cust);
+			if (size()>largestQueueSize) {
+				++largestQueueSize;
+			}
 			
 			return true;
 		}
@@ -72,6 +78,9 @@ public class FIFO{
 		for (int i = 0;i<size();i++) {
 			if(!fifoList.get(i).Priority()) {
 				fifoList.add(i, cust);
+				if (size()>largestQueueSize) {
+					++largestQueueSize;
+				}
 				return true;
 			}
 		}

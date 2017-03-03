@@ -36,6 +36,9 @@ public class HaircutFinishedEvent extends HairSalonEvent {
 			HairSalonEvent finished = new HaircutFinishedEvent(timeForNext,state,store, state.getFirst());
 			store.add(finished);
 			state.removeFirst();
+			state.increaseCuttinTime(timeForNext);
+			state.setLatestCustomerFinishTime(timeForNext);
+
 		}
 		if (state.checkHaircut(cust)){
 			double timeForNext = state.getUnsatisfiedCustomerArrivalTime();

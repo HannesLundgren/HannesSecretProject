@@ -26,12 +26,13 @@ public class HairSalonState extends State {
 	private int totalCustomers;
 	private double closingTime;
 	private double totalCuttingTime;
+	private double latestCustomerFinishTime;
 	
 	
 	private int w;
 	
 	private long seed = 1000;
-	private double p = 0.26;
+	private double p = 0;
 	private double lambda = 0.0666667;
 	private double hMin = 30;
 	private double hMax = 60;
@@ -80,17 +81,16 @@ public class HairSalonState extends State {
 	public Customer generateCustomer() {
 		return custGen.generateCustomer();
 	}
-	//Setters
-	
-//	public void SetSatisfied(Customer c) {
-//		c.setSatisfied();
-//	}
-//	public void SetNotSatisfied(Customer c) {
-//		c.setNotSatisfied();
-//	}
+
+	public void setLatestCustomerFinishTime(double time) {
+		latestCustomerFinishTime = time;
+	}
+	public double getLatestCustomerFinishTime() {
+		return latestCustomerFinishTime;
+	}
 	
 	public void increaseCuttinTime(double time) {
-		totalCuttingTime += time;
+		totalCuttingTime += time-currentTime;
 	}
 	
 	public double getAverageCuttingTime() {
