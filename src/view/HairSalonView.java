@@ -20,9 +20,6 @@ public class HairSalonView extends View {
 	HairSalonState state;
 
 
-	Customer cust; //CUstomer är inte initierat. 
-
-
 	
 	public HairSalonView(HairSalonState state) {
 		this.state = state;
@@ -38,14 +35,16 @@ public class HairSalonView extends View {
 		
 		// Good enough for testing
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
-			System.out.println("Number of chairs available: " + state.getIdleChairs());
-			System.out.println("Maximum queue size: "+ state.getMaxQueueSize());
-			System.out.println("Probability of unsatisfied customer: " + state.getP());
-			System.out.println("Lambda: " + state.getLambda());
-			System.out.println("Hmin: " + state.getHMin());
-			System.out.println("Hmax: " + state.getHMax());
-			System.out.println("Dmin: "+ state.getDMin());
-			System.out.println("Dmax: " + state.getDMax());
+			System.out.printf("%s %s %s %s %s %s %s %s%n", 
+					"Number of chairs available: " + state.getIdleChairs()+", ",
+					"Maximum queue size: "+ state.getMaxQueueSize()+", ",
+					"Probability of unsatisfied customer: " + state.getP()+", ",
+					"Lambda: " + state.getLambda()+", ",
+					"Hmin: " + state.getHMin()+", ",
+					"Hmax: " + state.getHMax()+", ",
+					"Dmin: "+ state.getDMin()+", ",
+					"Dmax: " + state.getDMax());
+
 						
 		}
 		
@@ -55,17 +54,15 @@ public class HairSalonView extends View {
 
 			
 		}else {
-			System.out.printf("%s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n",
+			System.out.printf("%s %s %s %s %s %s %s %s %s%n",
 					"Time: " + numbform.format((state.getCurrentTime())),
-
-					"Event: " + state.getCurrentEvent().toString(),
-					"ID: " + state.getCurrentCustomer().getId(),
-
-					"Idle: " + state.getIdleChairs(),
-					"TimeIdle: " + numbform.format((state.getTimeIdle())),
-					"TimeWating: " + numbform.format(state.getTimeWaiting()),
-					"NumWaiting: " + state.getNumWaiting(),
-					"NumLost: " + state.getNumLost(),
+					"Event: " + state.getCurrentEvent().toString()+", ",
+					"ID: " + state.getCurrentCustomer().getId()+", ",
+					"Idle: " + state.getIdleChairs()+", ",
+					"TimeIdle: " + numbform.format((state.getTimeIdle()))+", ",
+					"TimeWating: " + numbform.format(state.getTimeWaiting())+", ",
+					"NumWaiting: " + state.getNumWaiting()+", ",
+					"NumLost: " + state.getNumLost()+", ",
 					"NumReturning: " + state.getNumReturning()); }
 		
 
