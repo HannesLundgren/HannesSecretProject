@@ -2,7 +2,7 @@ package simulator;
 
 import java.util.Observable;
 /**
- * Abstract class that act as a template for states 
+ * Abstract class that act as a template for state
  * to be used in this simulator
  * @author hanneslundgren
  *
@@ -19,6 +19,10 @@ public abstract class State extends Observable{
 	
 	//The current time
 	protected double currentTime;
+	
+	public void activateEmergBrake() {
+		emergBrake = true;
+	}
 	
 	
 }

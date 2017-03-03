@@ -7,16 +7,19 @@ package simulator;
  */
 public abstract class StopEvent extends Event {
 
-	protected State state;
+//	protected State state;
+//	public StopEvent(State state) {
+//		this.state = state;
+//	}
 	
 	// UNDER CONSTRUCTION
 	@Override
 	/**
 	 * Sets the emergency brake var in State as true
 	 */
-	public void execute() {
-		state.emergBrake = true;
-	}
+	abstract public void execute();
+		
+	
 
 	@Override
 	public String toString() {
