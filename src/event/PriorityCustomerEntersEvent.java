@@ -29,6 +29,9 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 		
 		state.callChanged();
 		
+		state.increaseNumReturning();
+
+		
 		if (state.isChairsIdle()) {
 			state.decreaseIdleChairs();
 			double timeForNext = state.getHairdresserFinishTime();

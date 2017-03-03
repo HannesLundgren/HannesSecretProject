@@ -29,10 +29,11 @@ public class HairSalonState extends State {
 	private double latestCustomerFinishTime;
 	
 	
+	
 	private int w;
 	
 	private long seed = 1000;
-	private double p = 0;
+	private double p = 0.10;
 	private double lambda = 0.0666667;
 	private double hMin = 30;
 	private double hMax = 60;
@@ -414,6 +415,13 @@ public class HairSalonState extends State {
 	}
 	public int getLargestQueueSize() {
 		return queue.getLargestQueueSize();
+	}
+	public double getAverageQueueTime() {
+		return totalTimeWaiting/totalCustomers;
+	}
+	public void increaseNumReturning() {
+		numReturning++;
+		
 	}
 	
 	

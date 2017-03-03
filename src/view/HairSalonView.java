@@ -35,7 +35,7 @@ public class HairSalonView extends View {
 		
 		// Good enough for testing
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
-			System.out.printf("%s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n %n",
+			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n",
 					"Number of chairs available: " + state.getIdleChairs(),
 					"Maximum queue size: "+ state.getMaxQueueSize(),
 					"Probability of unsatisfied customer: " + state.getP(),
@@ -49,19 +49,17 @@ public class HairSalonView extends View {
 		}
 		
 		else if (state.getCurrentEvent() instanceof HairSalonStopEvent) {
-			System.out.printf("%s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n %n",
-					"Total customers; " + state.getTotCutCustomers(),
-					"Average cutting time: " + state.getAverageCuttingTime(),
-					"Average waiting time: " + state.getAverageQueueTime(),
+			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n",
+					"Total customers: " + state.getTotCutCustomers(),
+					"Average cutting time: " + numbform.format(state.getAverageCuttingTime()),
+					"Average waiting time: " + numbform.format(state.getAverageQueueTime()),
 					"Max in queue: " + state.getLargestQueueSize(),
 					"Lost customers: " + state.getNumLost(),
 					"dissatisfied customers: " + state.getNumReturning(),
-					"Total idle chair time: " + state.getTimeIdle(),
-					"Time of last haircut: " + state.getLatestCustomerFinishTime());
+					"Total idle chair time: " + numbform.format(state.getTimeIdle()),
+					"Time of last haircut: " + numbform.format(state.getLatestCustomerFinishTime()));
 			
-			System.out.println(state.getAverageCuttingTime());
-			System.out.println(state.getLatestCustomerFinishTime());
-			
+		
 
 			
 		}else {
@@ -71,7 +69,7 @@ public class HairSalonView extends View {
 					"ID: " + state.getCurrentCustomer().getId()+", ",
 					"Idle chairs: " + state.getIdleChairs()+", ",
 					"TimeIdle: " + numbform.format((state.getTimeIdle()))+", ",
-					"TimeWating: " + numbform.format(state.getTimeWaiting())+", ",
+					"TimeWaiting: " + numbform.format(state.getTimeWaiting())+", ",
 					"NumWaiting: " + state.getNumWaiting()+", ",
 					"NumLost: " + state.getNumLost()+", ",
 					"NumReturning: " + state.getNumReturning(),
