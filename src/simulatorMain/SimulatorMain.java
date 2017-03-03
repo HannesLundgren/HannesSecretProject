@@ -8,12 +8,7 @@ public class SimulatorMain {
 		// TODO Auto-generated method stub
  
 		
-		Random r = new Random();
-		System.out.println(r.nextDouble());
-		System.out.println(r.nextDouble());
-		System.out.println(r.nextDouble());
-		System.out.println(r.nextDouble());
-		System.out.println(r.nextDouble());
+		
 		
 	}
 
