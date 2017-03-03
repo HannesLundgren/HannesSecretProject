@@ -10,13 +10,15 @@ public class Simulator {
 		
 	}
 	
-	
-	public void run() {
-		
-		do {
-			store.getFirst().execute();
 
+	public void run() {
+	
+		do {
+			if(!store.isEmpty()) {
+				store.getFirst().execute();
+			}
 		} while (!state.emergBrake);
+		
 		
 	}
 }		

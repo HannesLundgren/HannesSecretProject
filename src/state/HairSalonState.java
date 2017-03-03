@@ -396,6 +396,10 @@ public class HairSalonState extends State {
 	public int getTotCutCustomers() {
 		return totalCustomers;
 	}
+	public void increaseNumberOfCust() {
+		totalCustomers++;
+		
+	}
 	
 	
 	

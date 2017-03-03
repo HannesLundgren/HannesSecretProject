@@ -5,7 +5,7 @@ package simulator;
  * @author hanneslundgren
  *
  */
-public class StopEvent extends Event {
+public abstract class StopEvent extends Event {
 
 	protected State state;
 	
@@ -15,9 +15,7 @@ public class StopEvent extends Event {
 	 * Sets the emergency brake var in State as true
 	 */
 	public void execute() {
-		
 		state.emergBrake = true;
-		
 	}
 
 	@Override
