@@ -31,7 +31,7 @@ public class HairSalonState extends State {
 	
 	private long seed = 1000;
 	private double p = 0.26;
-	private double lambda = 5;
+	private double lambda = 0.0666667;
 	private double hMin = 30;
 	private double hMax = 60;
 	private double dMin = 60;
@@ -292,8 +292,8 @@ public class HairSalonState extends State {
 	 * @return The time which the next customer will arrive.
 	 */
 	public double getNextArrivalTime() {
-//		return currentTime + ERS.next();
-		return currentTime + 15;
+		return currentTime + ERS.next();
+//		return currentTime + 5;
 	}
 	
 	/**

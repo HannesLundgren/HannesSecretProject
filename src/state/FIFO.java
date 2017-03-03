@@ -101,7 +101,7 @@ public class FIFO{
 	 */
 	public void removeLast() throws NoSuchElementException {
 		if(!this.isEmpty()){
-			fifoList.remove(-1);
+			fifoList.remove(maxQueueSize-1);
 		} else {
 			throw new NoSuchElementException();
 		}

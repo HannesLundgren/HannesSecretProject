@@ -7,6 +7,7 @@ public class Simulator {
 	
 	public Simulator(EventStore store, State state) {
 		this.store = store;
+		this.state = state;
 		
 	}
 	
@@ -20,7 +21,7 @@ public class Simulator {
 				stop.execute();
 			}
 			
-		} while (true);
+		} while (!state.emergBrake);
 		
 		
 	}
