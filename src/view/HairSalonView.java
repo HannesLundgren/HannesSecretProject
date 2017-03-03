@@ -35,16 +35,15 @@ public class HairSalonView extends View {
 		
 		// Good enough for testing
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
-			System.out.printf("%-5s %6s %7s %7s %9s %9s %14s %12s%n %s%n", 
-					"Number of chairs available: " + state.getIdleChairs()+", ",
-					"Maximum queue size: "+ state.getMaxQueueSize()+", ",
-					"Probability of unsatisfied customer: " + state.getP()+", ",
-					"Lambda: " + state.getLambda()+", ",
-					"Hmin: " + state.getHMin()+", ",
-					"Hmax: " + state.getHMax()+", ",
-					"Dmin: "+ state.getDMin()+", ",
-					"Dmax: " + state.getDMax(),
-					"");
+			System.out.printf("%s%n %s%n %s%n %s%n %s%n %s%n %s%n %s%n %n",
+					"Number of chairs available: " + state.getIdleChairs(),
+					"Maximum queue size: "+ state.getMaxQueueSize(),
+					"Probability of unsatisfied customer: " + state.getP(),
+					"Lambda: " + state.getLambda(),
+					"Hmin: " + state.getHMin(),
+					"Hmax: " + state.getHMax(),
+					"Dmin: "+ state.getDMin(),
+					"Dmax: " + state.getDMax());
 
 						
 		}
@@ -59,7 +58,7 @@ public class HairSalonView extends View {
 					"Time: " + numbform.format((state.getCurrentTime())),
 					"Event: " + state.getCurrentEvent().toString(),
 					"ID: " + state.getCurrentCustomer().getId()+", ",
-					"Idle: " + state.getIdleChairs()+", ",
+					"Idle chairs: " + state.getIdleChairs()+", ",
 					"TimeIdle: " + numbform.format((state.getTimeIdle()))+", ",
 					"TimeWating: " + numbform.format(state.getTimeWaiting())+", ",
 					"NumWaiting: " + state.getNumWaiting()+", ",
@@ -67,7 +66,7 @@ public class HairSalonView extends View {
 					"NumReturning: " + state.getNumReturning(),
 					"------------------------------------------------------------------"
 					+ "------------------------------------------------------------------"
-					+ "-----------------------------------------"); }
+					+ "-----------------------------------------------"); }
 		
 
 		}
