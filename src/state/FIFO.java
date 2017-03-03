@@ -127,4 +127,8 @@ public class FIFO{
 		return fifoList.get(maxQueueSize-1).getQueueEnterTime();
 	}
 	
+	public int getLargestQueueSize() {
+		return largestQueueSize;
+	}
+	
 }

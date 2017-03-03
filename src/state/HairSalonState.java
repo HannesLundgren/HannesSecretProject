@@ -412,6 +412,9 @@ public class HairSalonState extends State {
 		totalCustomers++;
 		
 	}
+	public int getLargestQueueSize() {
+		return queue.getLargestQueueSize();
+	}
 	
 	
 	
