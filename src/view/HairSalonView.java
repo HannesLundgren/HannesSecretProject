@@ -35,47 +35,48 @@ public class HairSalonView extends View {
 		
 		// Good enough for testing
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
-			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n",
-					"Number of chairs available: " + state.getIdleChairs(),
-					"Maximum queue size: "+ state.getMaxQueueSize(),
-					"Probability of unsatisfied customer: " + state.getP(),
-					"Lambda: " + state.getLambda(),
-					"Hmin: " + state.getHMin(),
-					"Hmax: " + state.getHMax(),
-					"Dmin: "+ state.getDMin(),
-					"Dmax: " + state.getDMax());
+			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%-15s%-30s%-10s%-18s%-18s%-18s%-18s%-13s%-10s%n%n",
+					"Number of chairs available:............ " + state.getIdleChairs(),
+					"Maximum queue size:.................... "+ state.getMaxQueueSize(),
+					"Probability of unsatisfied customer:... " + state.getP(),
+					"Lambda:................................ " + state.getLambda(),
+					"Hmin:.................................. " + state.getHMin(),
+					"Hmax:.................................. " + state.getHMax(),
+					"Dmin:.................................. "+ state.getDMin(),
+					"Dmax:.................................. " + state.getDMax(),
+					"Time","Event","ID","Idle chairs","TimeIdle",
+					"TimeWaiting","Numwaitning","NumLost","NumReturning");
+			
+
 
 						
 		}
 		
 		else if (state.getCurrentEvent() instanceof HairSalonStopEvent) {
 			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n",
-					"Total customers: " + state.getTotCutCustomers(),
-					"Average cutting time: " + numbform.format(state.getAverageCuttingTime()),
-					"Average waiting time: " + numbform.format(state.getAverageQueueTime()),
-					"Max in queue: " + state.getLargestQueueSize(),
-					"Lost customers: " + state.getNumLost(),
-					"dissatisfied customers: " + state.getNumReturning(),
-					"Total idle chair time: " + numbform.format(state.getTimeIdle()),
-					"Time of last haircut: " + numbform.format(state.getLatestCustomerFinishTime()));
-			
-		
-
+					"Total customers:........... " + state.getTotCutCustomers(),
+					"Average cutting time:...... " + numbform.format(state.getAverageCuttingTime()),
+					"Average waiting time:...... " + numbform.format(state.getAverageQueueTime()),
+					"Max in queue:.............. " + state.getLargestQueueSize(),
+					"Lost customers:............ " + state.getNumLost(),
+					"Dissatisfied customers:.... " + state.getNumReturning(),
+					"Total idle chair time:..... " + numbform.format(state.getTimeIdle()),
+					"Time of last haircut:...... " + numbform.format(state.getLatestCustomerFinishTime()));
 			
 		}else {
-			System.out.printf("%-15s %-35s %-10s %-10s %-25s %-20s %-20s %-15s %-10s%n %s%n",
-					"Time: " + numbform.format((state.getCurrentTime())),
-					"Event: " + state.getCurrentEvent().toString(),
-					"ID: " + state.getCurrentCustomer().getId()+", ",
-					"Idle chairs: " + state.getIdleChairs()+", ",
-					"TimeIdle: " + numbform.format((state.getTimeIdle()))+", ",
-					"TimeWaiting: " + numbform.format(state.getTimeWaiting())+", ",
-					"NumWaiting: " + state.getNumWaiting()+", ",
-					"NumLost: " + state.getNumLost()+", ",
-					"NumReturning: " + state.getNumReturning(),
+			System.out.printf("%-15s%-30s%-15s%-15s%-20s%-18s%-17s%-14s%-10s%n%s%n",
+					numbform.format((state.getCurrentTime())),
+					state.getCurrentEvent().toString(),
+					state.getCurrentCustomer().getId(),
+					state.getIdleChairs(),
+					numbform.format((state.getTimeIdle())),
+					numbform.format(state.getTimeWaiting()),
+					state.getNumWaiting(),
+					state.getNumLost(),
+					state.getNumReturning(),
 					"------------------------------------------------------------------"
 					+ "------------------------------------------------------------------"
-					+ "-----------------------------------------------"); }
+					+ "---------------------"); }
 		
 
 		}
