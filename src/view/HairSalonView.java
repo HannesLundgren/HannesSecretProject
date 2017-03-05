@@ -2,10 +2,6 @@ package view;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Observable;
-
-import customer.Customer;
-import simulator.Event;
-import event.HairSalonEvent;
 import event.HairSalonStartEvent;
 import event.HairSalonStopEvent;
 import simulator.View;
@@ -20,20 +16,26 @@ public class HairSalonView extends View {
 	HairSalonState state;
 
 
-	
+	/**
+	 * Constructor: Adds the class HairSalonView as an observer
+	 *
+	 * @param state 
+	 */
 	public HairSalonView(HairSalonState state) {
 		this.state = state;
 		state.addObserver(this);
 	}
 	
-	
+	/**
+	 * When the observer is notified, the update method will print out statistics
+	 * of simulation in the Console.
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		NumberFormat numbform = new DecimalFormat("#0.00");
 		
 		
-		// Good enough for testing
+		
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
 			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%-15s%-30s%-10s%-18s%-18s%-18s%-18s%-13s%-10s%n%n",
 					"Number of chairs available:............ " + state.getIdleChairs(),

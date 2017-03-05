@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import customer.Customer;
 /**
+ * The FIFO class represents a customer queue.
  * 
  * @author Amadeus Johansson
  *
@@ -57,7 +58,7 @@ public class FIFO{
 		return size() == 0;
 	}
 	/**
-	 * This method gives access to the first customer in the customerqueue.
+	 * This method gives access to the first customer in the customer queue.
 	 * @return the first customer in the queue if the queue is not empty.
 	 * @throws NoSuchElementException
 	 */
@@ -126,7 +127,10 @@ public class FIFO{
 	public double getLastQueueEnterTime() {
 		return fifoList.get(maxQueueSize-1).getQueueEnterTime();
 	}
-	
+	/**
+	 * 
+	 * @return  
+	 */
 	public int getLargestQueueSize() {
 		return largestQueueSize;
 	}
