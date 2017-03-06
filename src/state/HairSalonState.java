@@ -58,7 +58,6 @@ public class HairSalonState extends State {
 		this.closingTime = closingTime;
 		this.seed = seed;
 		queue = new FIFO(w);
-		
 		setCustomerArrivalDistribution(lambda,seed);
 		setCuttingTimeDistribution(hMin,hMax,seed);
 		setReturningTimeDistribution(dMin,dMax, seed);
