@@ -33,7 +33,7 @@ public class HairSalonState extends State {
 	private int w;
 	
 	private long seed; // = System.currentTimeMillis();
-	private double p = 0.10;
+	private double p = 0.90;
 	private double lambda = 0.1;
 	private double hMin = 30;
 	private double hMax = 60;

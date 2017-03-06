@@ -7,11 +7,6 @@ package simulator;
  */
 public abstract class StopEvent extends Event {
 
-//	protected State state;
-//	public StopEvent(State state) {
-//		this.state = state;
-//	}
-	
 	// UNDER CONSTRUCTION
 	@Override
 	/**
