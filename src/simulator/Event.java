@@ -11,7 +11,10 @@ public abstract class Event {
 	//The store in which the events are to be placed
 	protected EventStore store;
 	
-	
+	public Event (double startTime, EventStore store) {
+		this.startTime = startTime;
+		this.store = store;
+	}
 	
 	/**
 	 * Method that execute the effect of this event

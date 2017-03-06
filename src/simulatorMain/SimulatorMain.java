@@ -30,7 +30,7 @@ public class SimulatorMain {
 		Simulator sim = new Simulator (store, state);
 		HairSalonView view = new HairSalonView(state);
 		HairSalonStartEvent start = new HairSalonStartEvent(state, store);
-		HairSalonStopEvent stop = new HairSalonStopEvent(state, store);
+		HairSalonStopEvent stop = new HairSalonStopEvent(store, state);
 		sim.run(start, stop);
 		
 		

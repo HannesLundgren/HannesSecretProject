@@ -9,10 +9,12 @@ import state.HairSalonState;
 public class HaircutFinishedEvent extends HairSalonEvent {
 	
 	public HaircutFinishedEvent(double startTime, HairSalonState state, EventStore store, Customer cust) {
-		super.startTime = startTime;
-		super.state = state;
-		super.store = store; 
+		super(startTime,state,store);
 		super.cust = cust;
+//		super.startTime = startTime;
+//		super.state = state;
+//		super.store = store; 
+//		super.cust = cust;
 	}
 
 	@Override

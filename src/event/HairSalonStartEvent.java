@@ -9,9 +9,11 @@ import state.HairSalonState;
 public class HairSalonStartEvent extends StartEvent {
 	private HairSalonState state;
 	
-	public HairSalonStartEvent( HairSalonState state, EventStore store) {
+	public HairSalonStartEvent(HairSalonState state,EventStore store ) {
+		super(store);
 		this.state = state;
-		super.store = store;
+		
+//		super.store = store;
 	}
 	
 	

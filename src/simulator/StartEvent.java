@@ -6,7 +6,11 @@ package simulator;
  */
 public abstract class StartEvent extends Event{
 
-	protected double startTime = 0;
+	public StartEvent(EventStore store) {
+		super(0,store);
+		//FORTSÄTT FIXA EVENTKOSNTURKTORERNA
+	}
+	
 
 
 	

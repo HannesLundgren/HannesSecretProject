@@ -8,9 +8,10 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	
 
 	public CustomerEntersEvent(double startTime, HairSalonState state, EventStore store) {
-		super.startTime = startTime;
-		super.state = state;
-		super.store = store; 
+		super(startTime,state,store);
+//		super.startTime = startTime;
+//		super.state = state;
+//		super.store = store; 
 	}
 
 	@Override

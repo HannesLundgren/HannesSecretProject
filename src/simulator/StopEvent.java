@@ -6,6 +6,14 @@ package simulator;
  *
  */
 public abstract class StopEvent extends Event {
+	
+
+	public StopEvent(EventStore store) {
+		super(10000000, store);  
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	// UNDER CONSTRUCTION
 	@Override

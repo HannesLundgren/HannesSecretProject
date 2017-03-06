@@ -7,9 +7,10 @@ import state.HairSalonState;
 public class PriorityCustomerEntersEvent extends HairSalonEvent {
 
 	public PriorityCustomerEntersEvent(double startTime, HairSalonState state, EventStore store, Customer cust) {
-		super.startTime = startTime;
-		super.state = state;
-		super.store = store; 
+		super(startTime,state,store);
+//		super.startTime = startTime;
+//		super.state = state;
+//		super.store = store; 
 		super.cust = cust;
 	}
 

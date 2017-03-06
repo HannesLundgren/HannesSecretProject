@@ -14,10 +14,12 @@ public abstract class HairSalonEvent extends Event{
 	protected HairSalonState state;
 	protected Customer cust;
 	
-//	public HairSalonEvent(double startTime, HairSalonState state, EventStore store) {
-//		super(startTime,store);
-//		this.state = state;
-//	}
+	
+	public HairSalonEvent(double startTime,HairSalonState state, EventStore store) {
+		super(startTime,store);
+		this.state = state;
+		
+	}
 	
 	public Customer getCustomer() {
 		return cust;
