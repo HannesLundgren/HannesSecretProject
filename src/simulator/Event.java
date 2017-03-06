@@ -12,6 +12,7 @@ public abstract class Event {
 	protected EventStore store;
 	
 	
+	
 	/**
 	 * Method that execute the effect of this event
 	 */
