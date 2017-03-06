@@ -37,7 +37,7 @@ public class HairSalonView extends View {
 		
 		
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
-			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%-15s%-30s%-10s%-18s%-18s%-18s%-18s%-13s%-10s%n%n",
+			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%-15s%-30s%-10s%-18s%-18s%-18s%-18s%-13s%-10s%n%n",
 					"Number of chairs available:............ " + state.getIdleChairs(),
 					"Maximum queue size:.................... "+ state.getMaxQueueSize(),
 					"Probability of unsatisfied customer:... " + state.getP(),
@@ -46,6 +46,7 @@ public class HairSalonView extends View {
 					"Hmax:.................................. " + state.getHMax(),
 					"Dmin:.................................. "+ state.getDMin(),
 					"Dmax:.................................. " + state.getDMax(),
+					"Seed:..................................." + state.getSeed(),
 					"Time","Event","ID","Idle chairs","TimeIdle",
 					"TimeWaiting","Numwaitning","NumLost","NumReturning");
 			

@@ -32,7 +32,7 @@ public class HairSalonState extends State {
 	
 	private int w;
 	
-	private long seed = 1000;
+	private long seed; // = System.currentTimeMillis();
 	private double p = 0.10;
 	private double lambda = 0.1;
 	private double hMin = 30;
@@ -48,19 +48,20 @@ public class HairSalonState extends State {
 	
 	private FIFO queue;
 	private CustomerGenerator custGen = new CustomerGenerator();
-	private Random rand = new Random();
+	private Random rand = new Random(seed);
 	
 	
-	public HairSalonState(int totalChairs, int maxQueueSize, double closingTime) {
+	public HairSalonState(int totalChairs, int maxQueueSize, double closingTime, long seed) {
 		this.totalChairs = totalChairs;
 		this.idleChairs = totalChairs;//HEJ
 		this.w = maxQueueSize;
 		this.closingTime = closingTime;
+		this.seed = seed;
 		queue = new FIFO(w);
 		
-		setCustomerArrivalDistribution(lambda);
-		setCuttingTimeDistribution(hMin,hMax);
-		setReturningTimeDistribution(dMin,dMax);
+		setCustomerArrivalDistribution(lambda,seed);
+		setCuttingTimeDistribution(hMin,hMax,seed);
+		setReturningTimeDistribution(dMin,dMax, seed);
 		
 		
 		
@@ -79,9 +80,12 @@ public class HairSalonState extends State {
 	 * Generates customers.
 	 * @return Returns a new customer.
 	 */
+	
+
 	public Customer generateCustomer() {
 		return custGen.generateCustomer();
 	}
+	
 
 	public void setLatestCustomerFinishTime(double time) {
 		latestCustomerFinishTime = time;
@@ -112,10 +116,10 @@ public class HairSalonState extends State {
 	 * @param lambda
 	 * @param seed
 	 */
-	public void setCustomerArrivalDistribution(double lambda) {
+	public void setCustomerArrivalDistribution(double lambda, long seed) {
 		this.lambda = lambda;
-//		this.seed = seed;
-		ERS = new ExponentialRandomStream(lambda);
+		this.seed = seed;
+		ERS = new ExponentialRandomStream(lambda,seed);
 	}
 	
 	/**
@@ -124,13 +128,14 @@ public class HairSalonState extends State {
 	 * @param hMax
 	 * @param seed
 	 */
-	public void setCuttingTimeDistribution(double hMin, double hMax) {
+	public void setCuttingTimeDistribution(double hMin, double hMax, long seed) {
 		this.hMin = hMin;
 		this.hMax = hMax;
-//		this.seed = seed;
-		URSCutting = new UniformRandomStream(hMin, hMax);
+		this.seed = seed;
+		URSCutting = new UniformRandomStream(hMin, hMax, seed);
 
 	}
+	
 	
 	/**
 	 * Javadoc pliz
@@ -138,11 +143,11 @@ public class HairSalonState extends State {
 	 * @param dMax
 	 * @param seed
 	 */
-	public void setReturningTimeDistribution(double dMin, double dMax) {
+	public void setReturningTimeDistribution(double dMin, double dMax,long seed) {
 		this.dMin = dMin;
 		this.dMax = dMax;
-//		this.seed = seed; 
-		URSReturning = new UniformRandomStream(dMin, dMax);
+		this.seed = seed; 
+		URSReturning = new UniformRandomStream(dMin, dMax, seed);
 	}
 	
 	/**
@@ -233,6 +238,9 @@ public class HairSalonState extends State {
 	 */
 	public double getTimeWaiting() {
 		return totalTimeWaiting;
+	}
+	public long getSeed() {
+		return this.seed;
 	}
 	
 	/**

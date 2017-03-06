@@ -8,6 +8,7 @@ package simulator;
 public abstract class Event {
 	//Time when the event is supposed to be happen.
 	protected double startTime;
+	//The store in which the events are to be placed
 	protected EventStore store;
 	
 	
