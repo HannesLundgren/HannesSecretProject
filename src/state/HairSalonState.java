@@ -33,12 +33,12 @@ public class HairSalonState extends State {
 	private int w;
 	
 	private long seed; // = System.currentTimeMillis();
-	private double p = 0.90;
-	private double lambda = 0.1;
-	private double hMin = 30;
-	private double hMax = 60;
-	private double dMin = 60;
-	private double dMax = 120;
+	private double p = 0.50;
+	private double lambda = 1.2;
+	private double hMin = 1.0;
+	private double hMax = 2.0;
+	private double dMin = 1.0;
+	private double dMax = 2.0;
 	
 	private boolean isClosed = false;
 	
@@ -48,7 +48,7 @@ public class HairSalonState extends State {
 	
 	private FIFO queue;
 	private CustomerGenerator custGen = new CustomerGenerator();
-	private Random rand = new Random(seed);
+	private Random rand;
 	
 	
 	public HairSalonState(int totalChairs, int maxQueueSize, double closingTime, long seed) {
@@ -62,6 +62,7 @@ public class HairSalonState extends State {
 		setCustomerArrivalDistribution(lambda,seed);
 		setCuttingTimeDistribution(hMin,hMax,seed);
 		setReturningTimeDistribution(dMin,dMax, seed);
+		rand = new Random(seed);
 		
 		
 		
@@ -362,7 +363,7 @@ public class HairSalonState extends State {
 	 * the double acceptable or not.
 	 */
 	public boolean checkHaircut(Customer c) {
-		if(rand.nextDouble() < p) {
+		if(rand.nextDouble() <= p) {
 			c.setPriority();
 			return true;
 		}

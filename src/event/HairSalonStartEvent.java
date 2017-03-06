@@ -27,7 +27,7 @@ public class HairSalonStartEvent extends StartEvent {
 		
 		
 		
-		HairSalonEvent firstCustomer = new CustomerEntersEvent(startTime, state, store);
+		HairSalonEvent firstCustomer = new CustomerEntersEvent(state.getNextArrivalTime(), state, store);
 		store.add(firstCustomer);
 		
 	}

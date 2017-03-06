@@ -33,7 +33,7 @@ public class Customer {
 	public int getId() {
 		return id;
 	}
-	public boolean Priority() {
+	public boolean getPriority() {
 		return priority;
 	}
 	public void setPriority() {

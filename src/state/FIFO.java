@@ -77,7 +77,7 @@ public class FIFO{
 	 */
 	public boolean addPriorityCustomer(Customer cust) {
 		for (int i = 0;i<size();i++) {
-			if(!fifoList.get(i).Priority()) {
+			if(!fifoList.get(i).getPriority()) {
 				fifoList.add(i, cust);
 				if (size()>largestQueueSize) {
 					++largestQueueSize;
