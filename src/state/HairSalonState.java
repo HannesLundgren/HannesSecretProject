@@ -50,7 +50,14 @@ public class HairSalonState extends State {
 	private CustomerGenerator custGen = new CustomerGenerator();
 	private Random rand;
 	
-	
+	/**
+	 * HairSalonState constructor
+	 * 
+	 * @param totalChairs number of chairs in the salon
+	 * @param maxQueueSize how many customers that can be in the queue
+	 * @param closingTime The closing time for the hair salon 
+	 * @param seed 
+	 */
 	public HairSalonState(int totalChairs, int maxQueueSize, double closingTime, long seed) {
 		this.totalChairs = totalChairs;
 		this.idleChairs = totalChairs;//HEJ

@@ -9,7 +9,8 @@ import simulator.Simulator;
 import state.HairSalonState;
 import view.HairSalonView;
 /**
- * This is the main class for the Hairsalon simulator.
+ * This is the main class for the simulator.
+ * The startup of the simulation gets executed here.
  * 
  * @author Robert Högberg
  *
@@ -18,7 +19,7 @@ public class SimulatorMain {
 	
 	/**
 	 * The main method creates all the necessary objects and
-	 * lets the user specify the HairSalonState
+	 * lets the user specify the HairSalonState.
 	 * @param args
 	 */
 	public static void main(String[] args) {

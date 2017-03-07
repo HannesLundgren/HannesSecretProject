@@ -33,7 +33,7 @@ public class FIFO{
 	}
 	
 	/**
-	 * This method add to the queue depending on its max size.
+	 * Adds a customer to the queue depending on its maxSize.
 	 * @param cust A customer
 	 * @return true if the queue isn´t full, otherwise false.
 	 */
@@ -52,13 +52,13 @@ public class FIFO{
 	}
 	/**
 	 * 
-	 * @return true if the customer queue is empty
+	 * @return true if the queue is empty
 	 */
 	public boolean isEmpty() {
 		return size() == 0;
 	}
 	/**
-	 * This method gives access to the first customer in the customer queue.
+	 * This method gives access to the first customer in the queue.
 	 * @return the first customer in the queue if the queue is not empty.
 	 * @throws NoSuchElementException
 	 */
@@ -71,9 +71,10 @@ public class FIFO{
 	}
 	
 	/**
-	 * 
+	 * Adds a returning customer to the queue 
 	 * @param cust
-	 * @return
+	 * @return true if the queue is empty, or if the queue isn`t 
+	 * occipied with other priority customers, otherwise false. 
 	 */
 	public boolean addPriorityCustomer(Customer cust) {
 		if (isEmpty()){
@@ -137,7 +138,7 @@ public class FIFO{
 	}
 	/**
 	 * 
-	 * @return  
+	 * @return the largest queue size   
 	 */
 	public int getLargestQueueSize() {
 		return largestQueueSize;

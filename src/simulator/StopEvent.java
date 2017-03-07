@@ -7,7 +7,11 @@ package simulator;
  */
 public abstract class StopEvent extends Event {
 	
-
+	/**
+	 * StopEvent constructor calls the super constructor
+	 * 
+	 * @param store of the type EventStore
+	 */
 	public StopEvent(EventStore store) {
 		super(10000000, store);  
 		// TODO Auto-generated constructor stub

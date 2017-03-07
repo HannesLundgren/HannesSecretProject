@@ -18,9 +18,17 @@ public class EventStore {
 	public void add(Event e) {
 		store.add(e);
 	}
+	/**
+	 * 
+	 * @return the first event in the queue, then removes it.
+	 */
 	public Event getFirst() {
 		return store.poll();
 	}
+	/**
+	 * 
+	 * @return true if the queue is empty, otherwise false.
+	 */
 	public boolean isEmpty() {
 		return store.size()==0;
 	}

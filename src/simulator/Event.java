@@ -10,7 +10,11 @@ public abstract class Event {
 	protected double startTime;
 	//The store in which the events are to be placed
 	protected EventStore store;
-	
+	/**
+	 * Event constructor
+	 * @param startTime for the Event
+	 * @param store of the type EventStore
+	 */
 	public Event (double startTime, EventStore store) {
 		this.startTime = startTime;
 		this.store = store;
@@ -26,6 +30,10 @@ public abstract class Event {
 	 */
 	public abstract String toString();
 	
+	/**
+	 * 
+	 * @return start time for the event
+	 */
 	public double getStartTime() {
 		return startTime;
 	}

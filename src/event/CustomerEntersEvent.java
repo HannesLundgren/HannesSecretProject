@@ -3,17 +3,33 @@ package event;
 import customer.Customer;
 import simulator.EventStore;
 import state.HairSalonState;
-
+/**
+ * This class handles customers entering the hair salon
+ * @author Robert Högberg
+ *
+ */
 public class CustomerEntersEvent extends HairSalonEvent {
 	
-
+	/**
+	 * 
+	 * @param startTime of the event
+	 * @param state HairSalonState
+	 * @param store Eventstore
+	 */
 	public CustomerEntersEvent(double startTime, HairSalonState state, EventStore store) {
 		super(startTime,state,store);
 //		super.startTime = startTime;
 //		super.state = state;
 //		super.store = store; 
 	}
-
+	/**
+	 * The execute method, when called decides if a customer can
+	 * get a haircut, wait in the queue or just leave, if the 
+	 * chairs and the queue is occupied with other customers.
+	 * 
+	 * HairSalonState gets updated and the HairSalonView gets
+	 * notified of the changes and the event can have an effect.
+	 */
 	@Override
 	public void execute() {
 		
@@ -71,6 +87,7 @@ public class CustomerEntersEvent extends HairSalonEvent {
 		
 		
 	}
+
 
 	@Override
 	public String toString() {

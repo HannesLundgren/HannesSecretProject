@@ -94,19 +94,19 @@ public class HairSalonView extends View {
 						+ "---------------------");
 			}
 			
-				System.out.printf("%-15s%-30s%-15s%-15s%-20s%-18s%-17s%-14s%-10s%n%s%n",
-						numbform.format((state.getCurrentTime())),
-						state.getCurrentEvent().toString(),
-						state.getCurrentCustomer().getId(),
-						state.getIdleChairs(),
-						numbform.format((state.getTimeIdle())),
-						numbform.format(state.getTimeWaiting()),
-						state.getNumWaiting(),
-						state.getNumLost(),
-						state.getNumReturning(),
-						"------------------------------------------------------------------"
-						+ "------------------------------------------------------------------"
-						+ "---------------------"); 
+			System.out.printf("%-15s%-30s%-15s%-15s%-20s%-18s%-17s%-14s%-10s%n%s%n",
+					numbform.format((state.getCurrentTime())),
+					state.getCurrentEvent().toString(),
+					state.getCurrentCustomer().getId(),
+					state.getIdleChairs(),
+					numbform.format((state.getTimeIdle())),
+					numbform.format(state.getTimeWaiting()),
+					state.getNumWaiting(),
+					state.getNumLost(),
+					state.getNumReturning(),
+					"------------------------------------------------------------------"
+					+ "------------------------------------------------------------------"
+					+ "---------------------"); 
 		
 		
 

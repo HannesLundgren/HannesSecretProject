@@ -5,9 +5,19 @@ package event;
 import customer.Customer;
 import simulator.EventStore;
 import state.HairSalonState;
-
+/**
+ * This class handles the event when a haircut is finished
+ * @author Robert Högberg
+ *
+ */
 public class HaircutFinishedEvent extends HairSalonEvent {
-	
+	/**
+	 * HaircutFinishedEvent constructor
+	 * @param startTime for the event
+	 * @param state of the type HairsalonState
+	 * @param store of the type EventStore
+	 * @param cust is a customer
+	 */
 	public HaircutFinishedEvent(double startTime, HairSalonState state, EventStore store, Customer cust) {
 		super(startTime,state,store);
 		super.cust = cust;
@@ -16,7 +26,12 @@ public class HaircutFinishedEvent extends HairSalonEvent {
 //		super.store = store; 
 //		super.cust = cust;
 	}
-
+	/**
+	 * The execute method handles customers with a finished haircut. 
+	 * Customers with bad haircuts will return before the simulation ends.
+	 * HairSalonState gets updated and the HairSalonView gets
+	 * notified of the changes and the event can have an effect.
+	 */
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
