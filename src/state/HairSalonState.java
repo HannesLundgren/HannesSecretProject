@@ -511,7 +511,7 @@ public class HairSalonState extends State {
 	}
 	/**
 	 * 
-	 * @return The average queueue time is returned
+	 * @return The average queue time is returned
 	 */
 	public double getAverageQueueTime() {
 		return totalTimeWaiting/totalCustomers;
