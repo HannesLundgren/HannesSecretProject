@@ -33,12 +33,12 @@ public class HairSalonState extends State {
 	private int w;
 	
 	private long seed; // = System.currentTimeMillis();
-	private double p = 0.50;
-	private double lambda = 1.2;
-	private double hMin = 1.0;
-	private double hMax = 2.0;
-	private double dMin = 1.0;
-	private double dMax = 2.0;
+	private double p = 0.25;
+	private double lambda = 3.0;
+	private double hMin = 0.8;
+	private double hMax = 1.2;
+	private double dMin = 2.0;
+	private double dMax = 3.0;
 	
 	private boolean isClosed = false;
 	
@@ -85,11 +85,6 @@ public class HairSalonState extends State {
 	/**
 	 * Generates customers.
 	 * @return Returns a new customer.
-	 */
-	
-	/**
-	 * 
-	 * @return Generated customer
 	 */
 	public Customer generateCustomer() {
 		return custGen.generateCustomer();
@@ -403,8 +398,8 @@ public class HairSalonState extends State {
 	}
 	/**
 	 * 
-	 * @param c A customer
-	 * @return
+	 * @param c The customer
+	 * @return A truth value depending on if the queue is full of priority customers or not
 	 */
 	public boolean addPriorityCustomer(Customer c) {
 		// TODO Auto-generated method stub
