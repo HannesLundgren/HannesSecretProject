@@ -174,6 +174,10 @@ public class HairSalonState extends State {
 		timeForLastEvent = time;
 	}
 	
+	public double getTimeForLastEvent() {
+		return timeForLastEvent;
+	}
+	
 	/**
 	 * Sets the current customer.
 	 * @param cust The customer to be set as the current customer.

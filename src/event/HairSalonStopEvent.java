@@ -29,8 +29,9 @@ public class HairSalonStopEvent extends StopEvent {
 		state.activateEmergBrake();
 		
 		
-		
-		
-		
+	}
+	
+	public String toString() {
+		return "StopHSS";
 	}
 }
