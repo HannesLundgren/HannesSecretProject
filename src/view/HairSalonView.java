@@ -87,7 +87,7 @@ public class HairSalonView extends View {
 		}else {
 			if(state.getTimeForLastEvent()<state.getClosingTime() && state.getCurrentTime()>state.getClosingTime()) {
 				System.out.printf("%-15s%-30s%n%s%n",
-						state.getClosingTime(),
+						numbform.format(state.getClosingTime()),
 						"Closing",
 						"------------------------------------------------------------------"
 						+ "------------------------------------------------------------------"

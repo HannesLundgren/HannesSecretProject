@@ -17,10 +17,10 @@ public class CustomerEntersEvent extends HairSalonEvent {
 	@Override
 	public void execute() {
 		
-		if(state.getClosingTime()<startTime) {
-			state.setClosed();
-			return;
-		}
+//		if(state.getClosingTime()<startTime) {
+//			state.setClosed();
+//			return;
+//		}
 		
 		state.setTimeForLastEvent(state.getCurrentTime());
 		state.setCurrentEvent(this);
@@ -56,8 +56,16 @@ public class CustomerEntersEvent extends HairSalonEvent {
 			}
 		}
 		//Schedule new customer enters event
-		HairSalonEvent nextCustomer = new CustomerEntersEvent(state.getNextArrivalTime(), state, store);
-		store.add(nextCustomer);
+		
+		double nextStartTime = state.getNextArrivalTime();
+		
+		if(state.getClosingTime()>nextStartTime) {
+			HairSalonEvent nextCustomer = new CustomerEntersEvent(nextStartTime, state, store);
+			store.add(nextCustomer);
+		}else {
+			state.setClosed();
+		}
+		
 		
 		
 		
