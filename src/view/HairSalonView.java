@@ -28,7 +28,7 @@ public class HairSalonView extends View {
 	
 	/**
 	 * When the observer is notified, the update method will print out statistics
-	 * of simulation in the Console.
+	 * of the simulation in the Console.
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
@@ -46,7 +46,7 @@ public class HairSalonView extends View {
 					"Hmax:.................................. " + state.getHMax(),
 					"Dmin:.................................. "+ state.getDMin(),
 					"Dmax:.................................. " + state.getDMax(),
-					"Seed:..................................." + state.getSeed(),
+					"Seed:................................... " + state.getSeed(),
 					"Time","Event","ID","Idle chairs","TimeIdle",
 					"TimeWaiting","Numwaitning","NumLost","NumReturning");
 			
