@@ -76,15 +76,23 @@ public class FIFO{
 	 * @return
 	 */
 	public boolean addPriorityCustomer(Customer cust) {
-		for (int i = 0;i<size();i++) {
-			if(!fifoList.get(i).getPriority()) {
-				fifoList.add(i, cust);
-				if (size()>largestQueueSize) {
-					++largestQueueSize;
+		if (isEmpty()){
+			
+			fifoList.add(0,cust);
+			return true;
+		}else {
+			for (int i = 0;i<size();i++) {
+				if(!fifoList.get(i).getPriority()) {
+					fifoList.add(i, cust);
+					if (size()>largestQueueSize) {
+						++largestQueueSize;
+					}
+					return true;
 				}
-				return true;
 			}
 		}
+		
+		
 		return false;
 	}
 //	public void setFirst(Customer cust){
