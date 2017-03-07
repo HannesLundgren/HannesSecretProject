@@ -362,7 +362,7 @@ public class HairSalonState extends State {
 	 * the double acceptable or not.
 	 */
 	public boolean checkHaircut(Customer c) {
-		if(rand.nextDouble() <= p) {
+		if(rand.nextDouble() < p) {
 			c.setPriority();
 			return true;
 		}
