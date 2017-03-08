@@ -395,7 +395,7 @@ public class HairSalonState extends State {
 	 */
 	public boolean checkHaircut(Customer c) {
 		double tal = rand.nextDouble();
-		System.out.println(tal);
+//		System.out.println(tal);
 		if(tal < p) {
 			c.setPriority();
 			return true;

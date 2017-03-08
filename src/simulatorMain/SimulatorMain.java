@@ -25,12 +25,12 @@ public class SimulatorMain {
 	public static void main(String[] args) {
  
 		EventStore store = new EventStore();
-<<<<<<< HEAD
-		HairSalonState state = new HairSalonState(3, 4, 8, 1116);
+
+//		HairSalonState state = new HairSalonState(2, 5, 8, 1234);
 		
-=======
+
 		HairSalonState state = new HairSalonState(3, 4, 8.0, 1116);
->>>>>>> origin/master
+
 //		state.setCustomerArrivalDistribution(0.25);
 		
 		Simulator sim = new Simulator (store, state);
