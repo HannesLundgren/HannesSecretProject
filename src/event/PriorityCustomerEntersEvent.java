@@ -43,9 +43,10 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 		
 		state.callChanged();
 		
-//		if(!cust.getPriority()) {
-//			state.increaseNumReturning(); 
-//		}
+		
+//		state.increaseNumReturning(); 
+		
+		
 
 		
 		if (state.isChairsIdle()) {

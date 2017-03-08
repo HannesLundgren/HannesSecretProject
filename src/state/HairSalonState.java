@@ -33,7 +33,7 @@ public class HairSalonState extends State {
 	private int w;
 	
 	private long seed; // = System.currentTimeMillis();
-	private double p = 0;
+	private double p = 0.1;
 	private double lambda = 2.0;
 	private double hMin = 0.8;
 	private double hMax = 1.2;
@@ -390,7 +390,9 @@ public class HairSalonState extends State {
 	 * the double acceptable or not.
 	 */
 	public boolean checkHaircut(Customer c) {
+//		int tal = (rand.nextInt(100)+1);
 		double tal = rand.nextDouble();
+		
 //		System.out.println(tal);
 		if(tal < p) {
 			c.setPriority();
