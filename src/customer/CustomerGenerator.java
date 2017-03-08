@@ -1,7 +1,7 @@
 package customer;
 /**
  * Class that creates new customers
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public class CustomerGenerator {

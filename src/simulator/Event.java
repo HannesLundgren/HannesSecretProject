@@ -2,7 +2,7 @@ package simulator;
 /**
  * Abstract class that act as a template for
  * events used in the simulator
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public abstract class Event {

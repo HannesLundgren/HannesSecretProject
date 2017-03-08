@@ -5,7 +5,7 @@ import simulator.StopEvent;
 import state.HairSalonState;
 /**
  * This is the Stop event for the Hair salon simulation.
- * @author Robert Högberg
+ * @author Robert Högberg, Hanees Lundgren, Amadeus Johansson
  *
  */
 public class HairSalonStopEvent extends StopEvent {

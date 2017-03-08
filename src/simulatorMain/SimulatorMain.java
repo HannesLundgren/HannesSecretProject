@@ -12,7 +12,7 @@ import view.HairSalonView;
  * This is the main class for the simulator.
  * The startup of the simulation gets executed here.
  * 
- * @author Robert Högberg
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */
 public class SimulatorMain {

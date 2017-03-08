@@ -2,7 +2,7 @@ package simulator;
 /**
  * Class that describes a general stopevent of
  * the simulator
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public abstract class StopEvent extends Event {

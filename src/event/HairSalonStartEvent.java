@@ -7,7 +7,7 @@ import simulator.State;
 import state.HairSalonState;
 /**
  * This is the class that represents the hairsalon start event
- * @author Robert Högberg
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */
 public class HairSalonStartEvent extends StartEvent {

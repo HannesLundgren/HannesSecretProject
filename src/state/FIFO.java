@@ -7,7 +7,7 @@ import customer.Customer;
 /**
  * The FIFO class represents a customer queue.
  * 
- * @author Amadeus Johansson
+ * @author Amadeus Johansson, Hannes Lundgren, Robert Högberg
  *
  */
 public class FIFO{

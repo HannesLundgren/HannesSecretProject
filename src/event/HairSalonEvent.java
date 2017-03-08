@@ -6,7 +6,7 @@ import simulator.EventStore;
 import state.HairSalonState;
 /**
  * General hair salon event
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public abstract class HairSalonEvent extends Event{

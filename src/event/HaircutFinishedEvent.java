@@ -7,7 +7,7 @@ import simulator.EventStore;
 import state.HairSalonState;
 /**
  * This class handles the event when a haircut is finished
- * @author Robert Högberg
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */
 public class HaircutFinishedEvent extends HairSalonEvent {

@@ -5,7 +5,7 @@ import simulator.EventStore;
 import state.HairSalonState;
 /**
  * This class handles customers entering the hair salon
- * @author Robert Högberg
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */
 public class CustomerEntersEvent extends HairSalonEvent {

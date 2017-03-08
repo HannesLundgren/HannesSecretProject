@@ -1,7 +1,7 @@
 package simulator;
 /**
  * A general class for simulators
- * @author Robert Högberg
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */
 public class Simulator {

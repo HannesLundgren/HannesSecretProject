@@ -4,7 +4,7 @@ package simulator;
 import java.util.PriorityQueue;
 /**
  * This class represents an container for simulation events 
- * @author Robert Högberg
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */
 public class EventStore {

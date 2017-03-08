@@ -5,7 +5,7 @@ import java.util.Observer;
 /**
  * Abstract class that act as a template
  * for simulation views
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public abstract class View implements Observer {

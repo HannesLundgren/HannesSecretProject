@@ -4,7 +4,7 @@ import customer.Customer;
 import simulator.EventStore;
 import state.HairSalonState;
 /**
- * 
+ * This class represents the event when a priority customer returns
  * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
  *
  */

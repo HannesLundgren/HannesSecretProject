@@ -1,7 +1,7 @@
 package customer;
 /**
  * Class that represent a customer
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public class Customer {
