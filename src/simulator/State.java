@@ -4,7 +4,7 @@ import java.util.Observable;
 /**
  * Abstract class that act as a template for state
  * to be used in this simulator
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public abstract class State extends Observable{

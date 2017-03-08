@@ -9,7 +9,7 @@ import state.HairSalonState;
 /**
  * Class used for displaying the current state
  * of the Hair Salon Simulator
- * @author hanneslundgren
+ * @author Hannes Lundgren, Robert Högberg, Amadeus Johansson
  *
  */
 public class HairSalonView extends View {

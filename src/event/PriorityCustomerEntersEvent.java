@@ -3,9 +3,19 @@ package event;
 import customer.Customer;
 import simulator.EventStore;
 import state.HairSalonState;
-
+/**
+ * 
+ * @author Robert Högberg, Hannes Lundgren, Amadeus Johansson
+ *
+ */
 public class PriorityCustomerEntersEvent extends HairSalonEvent {
-
+	/**
+	 * PriorityCustomerEnetersEvent constructor
+	 * @param startTime Start time for the event
+	 * @param state Of the type HairSalonState
+	 * @param store
+	 * @param cust
+	 */
 	public PriorityCustomerEntersEvent(double startTime, HairSalonState state, EventStore store, Customer cust) {
 		super(startTime,state,store);
 //		super.startTime = startTime;
@@ -13,7 +23,11 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 //		super.store = store; 
 		super.cust = cust;
 	}
-
+	/**
+	 * Execute the event when a priority customer enters. 
+	 * HairSalonState gets updated and the HairSalonView gets
+	 * notified of the changes and the event can have an effect.
+	 */
 	@Override
 	public void execute() {
 		

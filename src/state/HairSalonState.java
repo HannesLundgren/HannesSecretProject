@@ -10,7 +10,7 @@ import simulator.Event;
 import simulator.State;
 /**
  * Class that represent a state at a HairSalon
- * @author hanneslundgren
+ * @author HannesLundgren
  *
  */
 public class HairSalonState extends State {
@@ -41,7 +41,6 @@ public class HairSalonState extends State {
 	private double dMax = 3.0;
 	
 	private boolean isClosed = false;
-	private double stopHSS = 999;
 	
 	private ExponentialRandomStream ERS;
 	private UniformRandomStream URSCutting;
@@ -83,9 +82,6 @@ public class HairSalonState extends State {
 		
 	}
 	
-	public double getStopHSS() {
-		return stopHSS;
-	}
 	
 	/**
 	 * Generates customers.
