@@ -26,10 +26,10 @@ public class SimulatorMain {
  
 		EventStore store = new EventStore();
 
-//		HairSalonState state = new HairSalonState(2, 5, 8, 1234);
+		HairSalonState state = new HairSalonState(2, 5, 8, 1234);
 		
 
-		HairSalonState state = new HairSalonState(3, 4, 8.0, 1116);
+//		HairSalonState state = new HairSalonState(3, 4, 8.0, 1116);
 
 //		state.setCustomerArrivalDistribution(0.25);
 		
@@ -37,6 +37,7 @@ public class SimulatorMain {
 		HairSalonView view = new HairSalonView(state);
 		HairSalonStartEvent start = new HairSalonStartEvent(state, store);
 		HairSalonStopEvent stop = new HairSalonStopEvent(store, state);
+		store.add(stop);
 		sim.run(start, stop);
 		
 		

@@ -33,12 +33,12 @@ public class HairSalonState extends State {
 	private int w;
 	
 	private long seed; // = System.currentTimeMillis();
-	private double p = 0.25;
-	private double lambda = 3.0;
+	private double p = 0;
+	private double lambda = 2.0;
 	private double hMin = 0.8;
 	private double hMax = 1.2;
-	private double dMin = 2.0;
-	private double dMax = 3.0;
+	private double dMin = 1.0;
+	private double dMax = 2.0;
 	
 	private boolean isClosed = false;
 	

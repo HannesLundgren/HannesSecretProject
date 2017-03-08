@@ -36,8 +36,9 @@ public class HairSalonStopEvent extends StopEvent {
 	public void execute() {
 		
 		state.setCurrentEvent(this);
+		state.setCurrentTime(startTime);
 		//state.updateIdleTime();
-		state.updateQueueTime();
+//		state.updateQueueTime();
 		
 		state.callChanged();
 		state.activateEmergBrake();

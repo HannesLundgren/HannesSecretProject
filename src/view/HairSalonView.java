@@ -38,15 +38,15 @@ public class HairSalonView extends View {
 		
 		if(state.getCurrentEvent() instanceof HairSalonStartEvent) {
 			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%-15s%-30s%-10s%-18s%-18s%-18s%-18s%-13s%-10s%n%n%-15s%-30s%n%s%n",
-					"Number of chairs available:............ " + state.getIdleChairs(),
-					"Maximum queue size:.................... "+ state.getMaxQueueSize(),
-					"Probability of unsatisfied customer:... " + state.getP(),
-					"Lambda:................................ " + state.getLambda(),
-					"Hmin:.................................. " + state.getHMin(),
-					"Hmax:.................................. " + state.getHMax(),
-					"Dmin:.................................. "+ state.getDMin(),
-					"Dmax:.................................. " + state.getDMax(),
-					"Seed:................................... " + state.getSeed(),
+					"Number of chairs available:............ :" + state.getIdleChairs(),
+					"Maximum queue size:.................... :"+ state.getMaxQueueSize(),
+					"Probability of unsatisfied customer:... :" + state.getP(),
+					"Lambda:................................ :" + state.getLambda(),
+					"Hmin:.................................. :" + state.getHMin(),
+					"Hmax:.................................. :" + state.getHMax(),
+					"Dmin:.................................. :"+ state.getDMin(),
+					"Dmax:.................................. :" + state.getDMax(),
+					"Seed:.................................. :" + state.getSeed(),
 					"Time","Event","ID","Idle chairs","TimeIdle",
 					"TimeWaiting","Numwaitning","NumLost","NumReturning",
 					numbform.format(state.getCurrentTime()),
@@ -61,6 +61,14 @@ public class HairSalonView extends View {
 		}
 		
 		else if (state.getCurrentEvent() instanceof HairSalonStopEvent) {
+			if(state.getTimeForLastEvent()<state.getClosingTime() && state.getCurrentTime()>state.getClosingTime()) {
+				System.out.printf("%-15s%-30s%n%s%n",
+						numbform.format(state.getClosingTime()),
+						"Closing",
+						"------------------------------------------------------------------"
+						+ "------------------------------------------------------------------"
+						+ "---------------------");
+			}
 			System.out.printf("%-15s%-30s%-15s%-15s%-20s%-18s%-17s%-14s%-10s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n",
 					numbform.format((state.getCurrentTime())),
 					state.getCurrentEvent().toString(),
@@ -75,14 +83,14 @@ public class HairSalonView extends View {
 					+ "------------------------------------------------------------------"
 					+ "---------------------",
 					
-					"Total customers:........... " + state.getTotCutCustomers(),
-					"Average cutting time:...... " + numbform.format(state.getAverageCuttingTime()),
-					"Average waiting time:...... " + numbform.format(state.getAverageQueueTime()),
-					"Max in queue:.............. " + state.getLargestQueueSize(),
-					"Lost customers:............ " + state.getNumLost(),
-					"Dissatisfied customers:.... " + state.getNumReturning(),
-					"Total idle chair time:..... " + numbform.format(state.getTimeIdle()),
-					"Time of last haircut:...... " + numbform.format(state.getLatestCustomerFinishTime()));
+					"Total customers:...........: " + state.getTotCutCustomers(),
+					"Average cutting time:......: " + numbform.format(state.getAverageCuttingTime()),
+					"Average waiting time:......: " + numbform.format(state.getAverageQueueTime()),
+					"Max in queue:..............: " + state.getLargestQueueSize(),
+					"Lost customers:............: " + state.getNumLost(),
+					"Dissatisfied customers:....: " + state.getNumReturning(),
+					"Total idle chair time:.....: " + numbform.format(state.getTimeIdle()),
+					"Time of last haircut:......: " + numbform.format(state.getLatestCustomerFinishTime()));
 			
 		}else {
 			if(state.getTimeForLastEvent()<state.getClosingTime() && state.getCurrentTime()>state.getClosingTime()) {

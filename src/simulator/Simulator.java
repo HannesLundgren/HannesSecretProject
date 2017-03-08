@@ -31,9 +31,9 @@ public class Simulator {
 		do {
 			store.getFirst().execute();
 			
-			if (store.isEmpty()) {
-				stop.execute();
-			}
+//			if (store.isEmpty()) {
+//				stop.execute();
+//			}
 			
 		} while (!state.emergBrake);
 		

@@ -13,7 +13,7 @@ public abstract class StopEvent extends Event {
 	 * @param store of the type EventStore
 	 */
 	public StopEvent(EventStore store) {
-		super(10000000, store);  
+		super(999, store);  
 		// TODO Auto-generated constructor stub
 	}
 
