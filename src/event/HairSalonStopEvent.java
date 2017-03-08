@@ -9,6 +9,7 @@ import state.HairSalonState;
  *
  */
 public class HairSalonStopEvent extends StopEvent {
+	
 	/**
 	 * HairSalonEvent constructor
 	 * @param store of the type EventStore
@@ -35,7 +36,7 @@ public class HairSalonStopEvent extends StopEvent {
 	public void execute() {
 		
 		state.setCurrentEvent(this);
-		state.updateIdleTime();
+		//state.updateIdleTime();
 		state.updateQueueTime();
 		
 		state.callChanged();

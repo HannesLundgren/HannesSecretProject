@@ -62,7 +62,7 @@ public class HairSalonView extends View {
 		
 		else if (state.getCurrentEvent() instanceof HairSalonStopEvent) {
 			System.out.printf("%-15s%-30s%-15s%-15s%-20s%-18s%-17s%-14s%-10s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n",
-					numbform.format((state.getStopHSS())),
+					numbform.format((state.getCurrentTime())),
 					state.getCurrentEvent().toString(),
 					"",
 					state.getIdleChairs(),
