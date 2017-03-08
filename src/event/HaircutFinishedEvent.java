@@ -64,7 +64,6 @@ public class HaircutFinishedEvent extends HairSalonEvent {
 			HairSalonEvent returning = new PriorityCustomerEntersEvent(timeForNext,state,store,cust);
 			store.add(returning);
 			
-			state.increaseNumReturning();
 			
 		}else {
 			state.increaseNumberOfCust();

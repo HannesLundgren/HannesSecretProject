@@ -45,6 +45,8 @@ public class PriorityCustomerEntersEvent extends HairSalonEvent {
 		
 		
 //		state.increaseNumReturning(); 
+		state.increaseNumReturning();
+
 		
 		
 

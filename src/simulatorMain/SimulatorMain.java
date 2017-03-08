@@ -26,7 +26,7 @@ public class SimulatorMain {
  
 		EventStore store = new EventStore();
 
-		HairSalonState state = new HairSalonState(2, 5, 8, 1234);
+		HairSalonState state = new HairSalonState(3, 4, 8, 1116);
 		
 
 //		HairSalonState state = new HairSalonState(3, 4, 8.0, 1116);
