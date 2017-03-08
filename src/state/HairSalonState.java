@@ -52,7 +52,6 @@ public class HairSalonState extends State {
 	
 	/**
 	 * HairSalonState constructor
-	 * 
 	 * @param totalChairs number of chairs in the salon
 	 * @param maxQueueSize how many customers that can be in the queue
 	 * @param closingTime The closing time for the hair salon 
@@ -87,24 +86,37 @@ public class HairSalonState extends State {
 	 * Generates customers.
 	 * @return Returns a new customer.
 	 */
-	
-
 	public Customer generateCustomer() {
 		return custGen.generateCustomer();
 	}
 	
-
+	/**
+	 * Sets the finish time for the latest customer.
+	 * @param time
+	 */
 	public void setLatestCustomerFinishTime(double time) {
 		latestCustomerFinishTime = time;
 	}
+	/**
+	 * 
+	 * @return The finish time for the latest customer.
+	 */
 	public double getLatestCustomerFinishTime() {
 		return latestCustomerFinishTime;
 	}
 	
+	/**
+	 * Increasing the total cutting time.
+	 * @param time
+	 */
 	public void increaseCuttinTime(double time) {
 		totalCuttingTime += time-currentTime;
 	}
 	
+	/**
+	 * 
+	 * @return The average cutting time.
+	 */
 	public double getAverageCuttingTime() {
 		return totalCuttingTime/totalCustomers;
 	}
@@ -119,9 +131,9 @@ public class HairSalonState extends State {
 	}
 
 	/**
-	 * Javadoc pliz
-	 * @param lambda
-	 * @param seed
+	 * Sets the arrival distribution for a customer 
+	 * @param lambda Customer per time unit.
+	 * @param seed Sequence variable
 	 */
 	public void setCustomerArrivalDistribution(double lambda, long seed) {
 		this.lambda = lambda;
@@ -130,13 +142,13 @@ public class HairSalonState extends State {
 	}
 	
 	/**
-	 * Javadoc pliz
-	 * @param hMin
-	 * @param hMax
-	 * @param seed
+	 * Sets the cutting time distribution
+	 * @param hMin Minimum cutting time  
+	 * @param hMax Maximum cutting time 
+	 * @param seed Sequence variable
 	 */
 	public void setCuttingTimeDistribution(double hMin, double hMax, long seed) {
-		this.hMin = hMin;
+		this.hMin = hMin; 
 		this.hMax = hMax;
 		this.seed = seed;
 		URSCutting = new UniformRandomStream(hMin, hMax, seed);
@@ -145,10 +157,10 @@ public class HairSalonState extends State {
 	
 	
 	/**
-	 * Javadoc pliz
-	 * @param dMin
-	 * @param dMax
-	 * @param seed
+	 * Sets the returning time distribution
+	 * @param dMin The minimum time for a priority customer to return
+	 * @param dMax The maximum time for a priority customer to return
+	 * @param seed Sequence variable
 	 */
 	public void setReturningTimeDistribution(double dMin, double dMax,long seed) {
 		this.dMin = dMin;
@@ -181,6 +193,10 @@ public class HairSalonState extends State {
 		timeForLastEvent = time;
 	}
 	
+	/**
+	 * 
+	 * @return The time for the latest event is returned
+	 */
 	public double getTimeForLastEvent() {
 		return timeForLastEvent;
 	}
@@ -374,14 +390,19 @@ public class HairSalonState extends State {
 	 */
 	public boolean checkHaircut(Customer c) {
 		double tal = rand.nextDouble();
-//		System.out.println(tal);
-		if(rand.nextDouble() < p) {
+		System.out.println(tal);
+		if(tal < p) {
 			c.setPriority();
 			return true;
 		}
 		return false;
 			
 	}
+	/**
+	 * 
+	 * @param c The customer
+	 * @return A truth value depending on if the queue is full of priority customers or not
+	 */
 	public boolean addPriorityCustomer(Customer c) {
 		// TODO Auto-generated method stub
 		if (queue.size()==queue.getMaxSize()) {
@@ -392,55 +413,110 @@ public class HairSalonState extends State {
 		}
 		return queue.addPriorityCustomer(c);
 	}
+	/**
+	 * 
+	 * @return Closing time is returned
+	 */
 	public double getClosingTime() {
 		return closingTime;
 		
 	}
+	/**
+	 * Sets the hair salon as closed
+	 */
 	public void setClosed() {
 		isClosed = true;
 		
 	}
+	/**
+	 * 
+	 * @return The maximum amount of customers in the queue is returned
+	 */
 	public int getMaxQueueSize() {
 		// TODO Auto-generated method stub
 		return w;
 	}
+	
+	/**
+	 * 
+	 * @return The dissatisfied customer variable is returned
+	 */
 	public double getP() {
 		// TODO Auto-generated method stub
 		return p;
 	}
+	/**
+	 * 
+	 * @return The customer per time unit is returned
+	 */
 	public double getLambda() {
 		// TODO Auto-generated method stub
 		return lambda;
 	}
+	
+	/**
+	 * 
+	 * @return The minimum cutting time is returned
+	 */
 	public double getHMin(){
 		// TODO Auto-generated method stub
 		return hMin;
 	}
+	/**
+	 * 
+	 * @return The maximum cutting time is returned
+	 */
 	public double getHMax() {
 		// TODO Auto-generated method stub
 		return hMax;
 	}
+	/**
+	 * 
+	 * @return The minimum time for a priority customer to come back is returned
+	 */
 	public double getDMin() {
 		// TODO Auto-generated method stub
 		return dMin;
 	}
+	/**
+	 * 
+	 * @return The minimum time for a priority customer to return, is returned
+	 */
 	public double getDMax() {
 		// TODO Auto-generated method stub
 		return dMax;
 	}
+	/**
+	 * 
+	 * @return The total amount of customers that got a satisfied haircut.
+	 */
 	public int getTotCutCustomers() {
 		return totalCustomers;
 	}
+	/**
+	 * Updates the amount of satisfied customers 
+	 */
 	public void increaseNumberOfCust() {
 		totalCustomers++;
 		
 	}
+	/**
+	 * 
+	 * @return The largest customer queue in a simulation run
+	 */
 	public int getLargestQueueSize() {
 		return queue.getLargestQueueSize();
 	}
+	/**
+	 * 
+	 * @return The average queue time is returned
+	 */
 	public double getAverageQueueTime() {
 		return totalTimeWaiting/totalCustomers;
 	}
+	/**
+	 * Updates the amount of returning customers 
+	 */
 	public void increaseNumReturning() {
 		numReturning++;
 		
