@@ -41,6 +41,7 @@ public class HairSalonState extends State {
 	private double dMax = 3.0;
 	
 	private boolean isClosed = false;
+	private double stopHSS = 999;
 	
 	private ExponentialRandomStream ERS;
 	private UniformRandomStream URSCutting;
@@ -80,6 +81,10 @@ public class HairSalonState extends State {
 		setChanged();
 		notifyObservers();
 		
+	}
+	
+	public double getStopHSS() {
+		return stopHSS;
 	}
 	
 	/**
