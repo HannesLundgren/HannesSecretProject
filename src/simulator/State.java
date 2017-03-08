@@ -20,6 +20,11 @@ public abstract class State extends Observable{
 	//The current time
 	protected double currentTime;
 	
+	/**
+	 * Activates the simulation break
+	 * The simulation ends when the method is called
+	 * 
+	 */
 	public void activateEmergBrake() {
 		emergBrake = true;
 	}
